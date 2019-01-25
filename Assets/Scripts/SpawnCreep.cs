@@ -15,10 +15,12 @@ public class SpawnCreep : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        //random integer from 1 to 3
         random = Random.Range(1, 4);
         if (spawn)
         {
             spawn = false;
+            //call spawnmonster function
             SpawnMonster();
         }	
 	}
@@ -36,9 +38,9 @@ public class SpawnCreep : MonoBehaviour {
         {
             Instantiate(enemyprefap, spawner[2].transform.position, Quaternion.identity);
         }
-        
-        
-        
+
+
+        //call ienumerator spawndelay to wait by spawnTime
         StartCoroutine(spawndelay());
     }
     IEnumerator spawndelay()

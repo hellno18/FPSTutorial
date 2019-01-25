@@ -11,20 +11,18 @@ public class Crouch : MonoBehaviour {
     public WeaponScript player;
     // PRIVATE VARS //
 
-    void Start()
-    {
-        //nothing here yet
-    }
-
     void Update()
     {
+        //while ctrl button pressed, player will crouch 
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
             IsCrouch = !IsCrouch;
+            //call crouchfunction to crouch
             CrouchFunction();
         }
     }
 
+    //crouchfunction to crouch
     void CrouchFunction()
     {
         if (IsCrouch == true)

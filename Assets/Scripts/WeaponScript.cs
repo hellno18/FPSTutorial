@@ -5,9 +5,9 @@ using UnityEngine.UI;
 public class WeaponScript : MonoBehaviour
 {
     public int Ammo;
-    public int AmmoLeft;
-    public int AmmoClip;
-    public int AmmoMax;
+    public int AmmoLeft;        //left ammo
+    public int AmmoClip;        // ammo clip
+    public int AmmoMax;         //max of ammo
     public float Firetime;
     public float Reloadtime;
     public string FireAnim;
@@ -42,26 +42,28 @@ public class WeaponScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //ammo  
         AmmoUI.text = Ammo.ToString() + "/";
+        //ammo left
         AmmoLeftUI.text = AmmoLeft.ToString();
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
             if (touch.phase == TouchPhase.Began && canFire && Ammo > 0)
             {
-                // タッチ開始
+                // while pressed touch or right click, call fire function
                 Fire();
             }
         }
         if (Input.GetMouseButton(0) && canFire && Ammo > 0)
         {
-            
+            // while pressed touch or right click, call fire function
             Fire();
         }
 
         if (Input.GetKey(KeyCode.R) && canFire && Ammo >= 0 &&Ammo<30)
         {
-
+            //While pressed R, call reload function
             Reload();
         }
     }
@@ -72,9 +74,12 @@ public class WeaponScript : MonoBehaviour
         GetComponent<Animation>().Blend(ReloadAnim);
         GetComponent<AudioSource>().PlayOneShot(FireReloadSound);
         AmmoLeft += Ammo - 30;
+
+        //reload delay by Reloadtime
         StartCoroutine(reloaddelay());
         
     }
+
     void Fire()
     {
         Ammo -= 1;
@@ -82,23 +87,33 @@ public class WeaponScript : MonoBehaviour
         GetComponent<Animation>().Blend(FireAnim);
         GetComponent<AudioSource>().PlayOneShot(Firesound);
         canFire = false;
+
+        //fire delay by Firetime
         StartCoroutine(firedelay());
+
+        //flash effect while firing by 0.15f
         StartCoroutine(flashdelay());
+
         muzzleFlashObject.SetActive(true);
         effect.SetActive(true);
+
+        //muzzleFlash play particle effect
         muzzleFlash.Play();
         Vector3 rayOrigin = maincam.ViewportToWorldPoint(new Vector3(0.5f,0.5f,0.0f));
         RaycastHit hit;
+
         if(Physics.Raycast(rayOrigin,maincam.transform.forward,out hit))
         {
-            //print("hit something!");
+            //when hit tag like "enemy" 
             if (hit.collider.tag == "Enemy")
             {
                 if (hit.collider.GetComponent<AI>().health <= Damage)
                 {
                     player.ScoreAdd(100);
                 }
+                //give damage to player
                 hit.collider.GetComponent<AI>().Damage(Damage);
+                //add score
                 player.ScoreAdd(Damage);
                 Debug.Log("HIT!!!");
             }

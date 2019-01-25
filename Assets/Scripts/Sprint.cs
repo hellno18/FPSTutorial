@@ -5,16 +5,14 @@ using UnityEngine;
 public class Sprint : MonoBehaviour {
     public string SprintAnim;
     public string ReturnAnim;
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
+  	
 	// Update is called once per frame
 	void Update () {
+        //while pressed down left shift, player will start sprint 
         if (Input.GetKeyDown(KeyCode.LeftShift)){
             sprintMethod();
         }
+        //while pressed up left shift, player will stop sprint
         if (Input.GetKeyUp(KeyCode.LeftShift)){
             endSprint();
         }

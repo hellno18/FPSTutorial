@@ -24,23 +24,29 @@ public class AI : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        //if enemy not find player
         if (Target == null)
         {
             Target = GameObject.FindWithTag("Player").transform;
-           
         }
-        if(Target != null)
+        //if enemy find player
+        if (Target != null)
         {
             Enemy.LookAt(Target);
         }
-       distance = Vector3.Distance(Target.position, Enemy.position);
+        //distance from enemy to player position
+        distance = Vector3.Distance(Target.position, Enemy.position);
+        
+        // enemy can't attack if distance far from player
         if(distance>AttackRadiusl && inView)
         {
             attacking = false;
             waiting = false;
         }
+
         if(attacking && !waiting && health > 0)
         {
+            //call strike function to attack player
             Strike();
         }
 
@@ -60,6 +66,7 @@ public class AI : MonoBehaviour {
             }
         }
 
+        // enemy can attack if distance near from player
         if (distance <= AttackRadiusl)
         {
             attacking = true;
@@ -69,6 +76,7 @@ public class AI : MonoBehaviour {
             attacking = false;
         }
 
+        //enemy will jump into the player
         if(Target!=null && inView && distance>=AttackRadiusl&&distance<=20)
         {
             Enemy.Translate(Vector3.forward * speed * Time.deltaTime);
@@ -77,6 +85,7 @@ public class AI : MonoBehaviour {
 
         if (health <= 0)
         {
+            //call die function when health is below than 0
             Die();
             health = 0;
         }
@@ -86,18 +95,24 @@ public class AI : MonoBehaviour {
     {
         health -= damage;
     }
+
     void Die()
     {
+        //hide enemy
         gameObject.SetActive(false);
     }
+
     void Strike()
     {
         waiting = true;
         Debug.Log("Player Attack");
         Target.GetComponent<PlayerScore>().hurt(damage);
         Target.GetComponent<PlayerScore>().hurtscreentimer=2;
+
+        //call strikedelay to delay by AttactSpeed
         StartCoroutine(strikedelay());
     }
+
     IEnumerator strikedelay()
     {
         yield return new WaitForSeconds(AttactSpeed);

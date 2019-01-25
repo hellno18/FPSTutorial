@@ -16,6 +16,7 @@ public class PlayerScore : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        //print score on ScoreUI
         ScoreUI.text = Score.ToString();
         healthslider.value = health;
         if (hurtscreentimer > 0)
@@ -33,10 +34,13 @@ public class PlayerScore : MonoBehaviour {
         }
 	}
 
+    //function for add Score by point
     public void ScoreAdd(int point)
     {
         Score += point;
     }
+
+    //function for add damage to player
     public void hurt(int damage)
     {
         health -= damage;
