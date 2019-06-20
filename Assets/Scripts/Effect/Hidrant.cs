@@ -12,6 +12,7 @@ public class Hidrant : MonoBehaviour
     {
         effect = false;
         isCreate = false;
+        particle.GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame

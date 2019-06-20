@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 11400000}
   - component: {fileID: 5400000}
   - component: {fileID: 8200000}
+  - component: {fileID: 3952185504195948891}
+  - component: {fileID: 4118841951093153112}
   m_Layer: 0
   m_Name: FPSController
   m_TagString: Untagged
@@ -291,6 +293,42 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &3952185504195948891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d694068763188f4da3b203fb9210f13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Score: 0
+  ScoreUI: {fileID: 0}
+  health: 100
+  healthslider: {fileID: 0}
+  hurtscreentimer: 0
+  hurtscreen: {fileID: 0}
+--- !u!114 &4118841951093153112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efab33beb536b2c4091f93fd0bb115d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  t_mesh: {fileID: 400000}
+  ccr_controller: {fileID: 14300000}
+  IsCrouch: 0
+  LocalScaleY: 0
+  ControllerHeight: 0
+  player: {fileID: 0}
 --- !u!1 &100002
 GameObject:
   m_ObjectHideFlags: 0

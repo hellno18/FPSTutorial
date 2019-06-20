@@ -48,7 +48,7 @@ public class AI : MonoBehaviour {
             //follow player
             nav.Resume();
             nav.SetDestination(Target.position);
-            if (distance<1.5f)
+            if (distance<1.4f)
             {
                 //stop nav agent
                 nav.Stop();
