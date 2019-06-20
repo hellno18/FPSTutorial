@@ -7,98 +7,71 @@ public class AI : MonoBehaviour {
     public int health;
     public Transform Enemy;
     public Transform Target;
-    public Camera maincamera;
     public int damage;
     public int AttactSpeed;
-    public int speed;
-    public int AttackRadiusl;
+    public float seeSight;
     public float distance;
-    public bool attacking;
-    public bool waiting;
-    public bool inView;
-
+   
+    private bool isWaiting;
     private Animator anim;
+    private NavMeshAgent nav;
+
+    enum EnemyState
+    {
+        idle,
+        walk,
+        attack
+    }
+    EnemyState enemyState;
+
 	// Use this for initialization
 	void Start () {
+        Target = GameObject.FindGameObjectWithTag("Player").transform;
         anim = GetComponentInChildren<Animator>();
-        inView = false;
-        waiting = false;
-        attacking = false;
-	}
+        nav = GetComponent<NavMeshAgent>();
+        isWaiting = false;
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        //if enemy not find player
-        if (Target == null)
-        {
-            Target = GameObject.FindWithTag("Player").transform;
-        }
-        //if enemy find player
-        if (Target != null)
-        {
-            Enemy.LookAt(Target);
-        }
-        //distance from enemy to player position
-        distance = Vector3.Distance(Target.position, Enemy.position);
         
-        // enemy can't attack if distance far from player
-        if(distance>AttackRadiusl && inView)
+        distance = Vector3.Distance(Target.position, Enemy.position);
+        if (distance < seeSight )
         {
-            attacking = false;
-            waiting = false;
-        }
+            var targetRotation = Quaternion.LookRotation(Target.transform.position - transform.position);
 
-        if(attacking && !waiting && health > 0)
-        {
-            //call strike function to attack player
-            Strike();
-        }
+            // Smoothly rotate towards the target point.
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 1 * Time.deltaTime);
 
-        Vector3 rayOrigin = maincamera.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0.0f));
-        RaycastHit hit;
+            //looking around
+           // transform.LookAt(targetRotation);
 
-        if(Physics.Raycast(rayOrigin,maincamera.transform.forward,out hit))
-        {
-            if (hit.collider.gameObject.tag == "Player")
-            {
-                inView = true;
-            }
-            else
-            {
-                inView=false;
-            }
-        }
-
-        // enemy can attack if distance near from player
-        if (distance <= AttackRadiusl)
-        {
-            attacking = true;
-            //Enemy Attack true
-            anim.SetBool("attack", true);
-        }
-        else
-        {
-            attacking = false;
-            //Enemy Attack false
-            anim.SetBool("attack", false);
-        }
-
-        //enemy will jump into the player
-        if(Target!=null && inView && distance>=AttackRadiusl&&distance<=20)
-        {
-            Enemy.Translate(Vector3.forward * speed * Time.deltaTime);
-            //Enemy Walk animation
+            enemyState = EnemyState.walk;
+            //walk animation
             anim.SetBool("walk", true);
-           
+            //follow player
+            nav.Resume();
+            nav.SetDestination(Target.position);
+            if (distance<1.5f)
+            {
+                //stop nav agent
+                nav.Stop();
+                //walk animation
+                anim.SetBool("walk", false);
+                             
+                enemyState = EnemyState.attack;
+                if(!isWaiting) Strike();
+            }
+        
         }
-
         else
         {
-            //Enemy Walk animation
+            enemyState=EnemyState.idle;
+            //walk animation
             anim.SetBool("walk", false);
-           
         }
 
+       
         if (health <= 0)
         {
             //call die function when health is below than 0
@@ -121,11 +94,11 @@ public class AI : MonoBehaviour {
 
     void Strike()
     {
-        waiting = true;
+        anim.SetBool("attack", true);
         Debug.Log("Player Attack");
         Target.GetComponent<PlayerScore>().hurt(damage);
         Target.GetComponent<PlayerScore>().hurtscreentimer=2;
-
+        isWaiting = true;
         //call strikedelay to delay by AttactSpeed
         StartCoroutine(strikedelay());
     }
@@ -133,9 +106,10 @@ public class AI : MonoBehaviour {
     IEnumerator strikedelay()
     {
         yield return new WaitForSeconds(AttactSpeed);
-        //Enemy Attack true
+        //Enemy Attack  false
         anim.SetBool("attack", false);
-        waiting = false;
+        yield return new WaitForSeconds(AttactSpeed);
+        isWaiting = false;
     }
     IEnumerator diedelay()
     {
