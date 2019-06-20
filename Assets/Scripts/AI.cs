@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class AI : MonoBehaviour {
     public int health;
@@ -15,6 +16,7 @@ public class AI : MonoBehaviour {
     public bool attacking;
     public bool waiting;
     public bool inView;
+
     private Animator anim;
 	// Use this for initialization
 	void Start () {
@@ -105,6 +107,7 @@ public class AI : MonoBehaviour {
         }
 	}
 
+   
     public void Damage(int damage)
     {
         health -= damage;
@@ -112,8 +115,8 @@ public class AI : MonoBehaviour {
 
     void Die()
     {
-        //hide enemy
-        gameObject.SetActive(false);
+        anim.SetBool("die", true);
+        StartCoroutine(diedelay());
     }
 
     void Strike()
@@ -133,5 +136,13 @@ public class AI : MonoBehaviour {
         //Enemy Attack true
         anim.SetBool("attack", false);
         waiting = false;
+    }
+    IEnumerator diedelay()
+    {
+       
+        yield return new WaitForSeconds(1f);
+        //hide enemy
+        anim.SetBool("die", false);
+        Destroy(gameObject);
     }
 }
