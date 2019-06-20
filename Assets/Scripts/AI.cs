@@ -20,7 +20,7 @@ public class AI : MonoBehaviour {
     private Animator anim;
 	// Use this for initialization
 	void Start () {
-        anim = GameObject.Find("Zombie").GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
         inView = false;
         waiting = false;
         attacking = false;
@@ -139,10 +139,10 @@ public class AI : MonoBehaviour {
     }
     IEnumerator diedelay()
     {
-       
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         //hide enemy
         anim.SetBool("die", false);
+        gameObject.SetActive(false);
         Destroy(gameObject);
     }
 }

@@ -93,9 +93,9 @@ GameObject:
   - component: {fileID: 4833035312117278}
   - component: {fileID: 33320102012710526}
   - component: {fileID: 23878998462245082}
-  - component: {fileID: 136611286996099250}
   - component: {fileID: 114506158751900320}
   - component: {fileID: 7480761904505941918}
+  - component: {fileID: 2811122531593974465}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -164,20 +164,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &136611286996099250
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1964507217663530}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114506158751900320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,6 +210,20 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!136 &2811122531593974465
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1964507217663530}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &5147995347396946781
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -231,10 +231,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4833035312117278}
     m_Modifications:
-    - target: {fileID: 1300611964618398, guid: 0584839bceadb844fa31b1ca352056ba, type: 3}
-      propertyPath: m_Name
-      value: Zombie
-      objectReference: {fileID: 0}
     - target: {fileID: 4846736819855508, guid: 0584839bceadb844fa31b1ca352056ba, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -278,6 +274,10 @@ PrefabInstance:
     - target: {fileID: 4846736819855508, guid: 0584839bceadb844fa31b1ca352056ba, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1300611964618398, guid: 0584839bceadb844fa31b1ca352056ba, type: 3}
+      propertyPath: m_Name
+      value: Zombie
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1572568696992232984, guid: 0584839bceadb844fa31b1ca352056ba, type: 3}
