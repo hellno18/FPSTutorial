@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\PlayerScore.cs" />
     <Compile Include="Assets\Scripts\SpawnCreep.cs" />
     <Compile Include="Assets\Scripts\Sprint.cs" />
+    <Compile Include="Assets\Scripts\TimeSystem.cs" />
     <Compile Include="Assets\Scripts\WeaponScript.cs" />
     <None Include="Assets\FPS Kit By (HDGameP)\My Kit\M4A1\Shaders\BumpedSpecular2.shader" />
     <None Include="Assets\FPS Kit By (HDGameP)\My Kit\G18\Shaders\BumpedSpecular2.shader" />

@@ -109,7 +109,7 @@ public class WeaponScript : MonoBehaviour
             {
                 if (hit.collider.GetComponent<AI>().health <= Damage)
                 {
-                    player.ScoreAdd(100);
+                    player.ScoreAdd(50);
                 }
                 //give damage to player
                 hit.collider.GetComponent<AI>().Damage(Damage);

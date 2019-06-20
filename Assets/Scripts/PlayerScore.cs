@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class PlayerScore : MonoBehaviour {
     public int Score;
     public Text ScoreUI;
@@ -9,9 +10,10 @@ public class PlayerScore : MonoBehaviour {
     public Slider healthslider;
     public float hurtscreentimer;
     public GameObject hurtscreen;
+    TimeSystem timesystem;
 	// Use this for initialization
 	void Start () {
-		
+        timesystem = GameObject.Find("GameController").GetComponent<TimeSystem>();
 	}
 	
 	// Update is called once per frame
@@ -32,6 +34,12 @@ public class PlayerScore : MonoBehaviour {
         {
             hurtscreentimer = 0;
         }
+        if (health <= 0)
+        {
+           
+            StartCoroutine(DelayDead());
+
+        }
 	}
 
     //function for add Score by point
@@ -44,5 +52,12 @@ public class PlayerScore : MonoBehaviour {
     public void hurt(int damage)
     {
         health -= damage;
+    }
+
+    IEnumerator DelayDead() {
+        //change status game
+        timesystem.gamestatus = TimeSystem.GameStatus.Dead;
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene("Main");
     }
 }
