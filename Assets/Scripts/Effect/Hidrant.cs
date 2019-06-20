@@ -27,8 +27,7 @@ public class Hidrant : MonoBehaviour
            
 
     }
-   
-
+    
     public bool setHidrant(bool x)
     {
         effect=x;
