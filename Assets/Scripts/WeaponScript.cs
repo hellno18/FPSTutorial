@@ -117,6 +117,11 @@ public class WeaponScript : MonoBehaviour
                 player.ScoreAdd(Damage);
                 Debug.Log("HIT!!!");
             }
+            else if(hit.collider.tag=="Hidrant"){
+                Hidrant hidrant = hit.collider.GetComponent<Hidrant>();
+                hidrant.setHidrant(true);
+                Debug.Log("EFECT!!");
+            }
         }
     }
 

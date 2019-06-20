@@ -42,9 +42,6 @@ public class AI : MonoBehaviour {
 
             // Smoothly rotate towards the target point.
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 1 * Time.deltaTime);
-
-            
-
             
             //walk animation
             anim.SetBool("walk", true);

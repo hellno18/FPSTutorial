@@ -9,6 +9,7 @@ TagManager:
   - Weapon
   - LevelPart
   - Enemy
+  - Hidrant
   layers:
   - Default
   - TransparentFX
