@@ -34,19 +34,18 @@ public class AI : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        
         distance = Vector3.Distance(Target.position, Enemy.position);
         if (distance < seeSight )
         {
+            enemyState = EnemyState.walk;
             var targetRotation = Quaternion.LookRotation(Target.transform.position - transform.position);
 
             // Smoothly rotate towards the target point.
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 1 * Time.deltaTime);
 
-            //looking around
-           // transform.LookAt(targetRotation);
+            
 
-            enemyState = EnemyState.walk;
+            
             //walk animation
             anim.SetBool("walk", true);
             //follow player
@@ -96,11 +95,15 @@ public class AI : MonoBehaviour {
     {
         anim.SetBool("attack", true);
         Debug.Log("Player Attack");
-        Target.GetComponent<PlayerScore>().hurt(damage);
-        Target.GetComponent<PlayerScore>().hurtscreentimer=2;
-        isWaiting = true;
-        //call strikedelay to delay by AttactSpeed
-        StartCoroutine(strikedelay());
+        if (anim.GetBool("attack"))
+        {
+            Target.GetComponent<PlayerScore>().hurt(damage);
+            Target.GetComponent<PlayerScore>().hurtscreentimer = 2;
+            isWaiting = true;
+            //call strikedelay to delay by AttactSpeed
+            StartCoroutine(strikedelay());
+        }
+       
     }
 
     IEnumerator strikedelay()
