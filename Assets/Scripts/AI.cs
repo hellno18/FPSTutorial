@@ -15,8 +15,10 @@ public class AI : MonoBehaviour {
     public bool attacking;
     public bool waiting;
     public bool inView;
+    private Animator anim;
 	// Use this for initialization
 	void Start () {
+        anim = GameObject.Find("Zombie").GetComponent<Animator>();
         inView = false;
         waiting = false;
         attacking = false;
@@ -58,7 +60,6 @@ public class AI : MonoBehaviour {
             if (hit.collider.gameObject.tag == "Player")
             {
                 inView = true;
-               
             }
             else
             {
@@ -70,17 +71,30 @@ public class AI : MonoBehaviour {
         if (distance <= AttackRadiusl)
         {
             attacking = true;
+            //Enemy Attack true
+            anim.SetBool("attack", true);
         }
         else
         {
             attacking = false;
+            //Enemy Attack false
+            anim.SetBool("attack", false);
         }
 
         //enemy will jump into the player
         if(Target!=null && inView && distance>=AttackRadiusl&&distance<=20)
         {
             Enemy.Translate(Vector3.forward * speed * Time.deltaTime);
-            
+            //Enemy Walk animation
+            anim.SetBool("walk", true);
+           
+        }
+
+        else
+        {
+            //Enemy Walk animation
+            anim.SetBool("walk", false);
+           
         }
 
         if (health <= 0)
@@ -116,6 +130,8 @@ public class AI : MonoBehaviour {
     IEnumerator strikedelay()
     {
         yield return new WaitForSeconds(AttactSpeed);
-        waiting= false;
+        //Enemy Attack true
+        anim.SetBool("attack", false);
+        waiting = false;
     }
 }
