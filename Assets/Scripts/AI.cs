@@ -11,7 +11,8 @@ public class AI : MonoBehaviour {
     public int AttactSpeed;
     public float seeSight;
     public float distance;
-   
+    public GameObject Bonus;
+
     private bool isWaiting;
     private Animator anim;
     private NavMeshAgent nav;
@@ -117,6 +118,7 @@ public class AI : MonoBehaviour {
         //hide enemy
         anim.SetBool("die", false);
         gameObject.SetActive(false);
+        Instantiate(Bonus,transform.position,Quaternion.identity);
         Destroy(gameObject);
     }
 }

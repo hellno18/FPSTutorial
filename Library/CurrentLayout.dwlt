@@ -45,7 +45,7 @@ MonoBehaviour:
     y: 0
     width: 1920
     height: 997
-  m_MinSize: {x: 950, y: 300}
+  m_MinSize: {x: 950, y: 498}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &3
 MonoBehaviour:
@@ -95,7 +95,7 @@ MonoBehaviour:
   m_MinSize: {x: 913, y: 448}
   m_MaxSize: {x: 22008, y: 10024}
   vertical: 0
-  controlID: 49
+  controlID: 52
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_MinSize: {x: 202, y: 448}
   m_MaxSize: {x: 4002, y: 8048}
   vertical: 1
-  controlID: 136
+  controlID: 130
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -248,7 +248,7 @@ MonoBehaviour:
   - {fileID: 14}
   - {fileID: 13}
   m_Selected: 0
-  m_LastSelected: 1
+  m_LastSelected: 2
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -439,7 +439,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 3abffeff82eafeff5ef5feff9645ffff68b6000014b70000
+      m_ExpandedIDs: d4fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -536,20 +536,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Models/doom/citydoom
+    - Assets/Perfaps
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Models/doom/citydoom
+  - Assets/Perfaps
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\student\Documents\GitHub\FPSTutorial
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 968a0000
-    m_LastClickedID: 35478
-    m_ExpandedIDs: 0000000066780000f4780000567a0000127c00002a7c0000ba7c0000ec7c0000067e0000d47f0000728000000a810000388200009e82000014830000208300007c8a0000828a00008c8a00008e8a0000968a0000a88a0000ba8a0000be8a000000ca9a3b
+    m_SelectedIDs: 66190000
+    m_LastClickedID: 6502
+    m_ExpandedIDs: 000000000c0c0000b80c0000c20e0000f810000010110000be11000024120000321300006a13000010150000b615000070170000161800008e190000661a0000de1a0000ee1a000056400000584000005a4000005c4000005e40000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -577,7 +577,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000066780000f4780000567a0000127c00002a7c0000ba7c0000ec7c0000067e0000d47f0000728000000a810000388200009e8200001483000020830000
+    m_ExpandedIDs: 000000000c0c0000b80c0000c20e0000100f0000f810000010110000be11000024120000321300006a13000010150000b615000070170000161800008e190000661a0000de1a0000ee1a000056400000584000005a4000005c4000005e400000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -743,9 +743,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 47.30375, y: -9.56371, z: 54.64514}
+    m_Target: {x: 93.97278, y: -6.972799, z: 48.146904}
     speed: 2
-    m_Value: {x: 47.30375, y: -9.56371, z: 54.64514}
+    m_Value: {x: 93.97278, y: -6.972799, z: 48.146904}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -773,13 +773,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: 0.22885916, y: -0.061249316, z: 0.014430877, w: 0.9714236}
+    m_Target: {x: 0.1663909, y: 0.61718845, z: -0.1356657, w: 0.7569593}
     speed: 2
-    m_Value: {x: 0.22885916, y: -0.061249316, z: 0.014430877, w: 0.9714236}
+    m_Value: {x: 0.1663909, y: 0.61718845, z: -0.1356657, w: 0.7569593}
   m_Size:
-    m_Target: 27.022854
+    m_Target: 31.064571
     speed: 2
-    m_Value: 27.022854
+    m_Value: 31.064571
   m_Ortho:
     m_Target: 0
     speed: 2

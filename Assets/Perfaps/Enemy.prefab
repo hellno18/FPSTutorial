@@ -100,6 +100,7 @@ MonoBehaviour:
   AttactSpeed: 1
   seeSight: 5
   distance: 2
+  Bonus: {fileID: 4326277555617572905, guid: 417155d861b32ac4d9e8b13bd1365983, type: 3}
 --- !u!195 &7480761904505941918
 NavMeshAgent:
   m_ObjectHideFlags: 0
