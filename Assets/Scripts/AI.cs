@@ -11,7 +11,8 @@ public class AI : MonoBehaviour {
     public int AttactSpeed;
     public float seeSight;
     public float distance;
-    public GameObject Bonus;
+    public GameObject[] Bonus;
+    int randomItem;
 
     private bool isWaiting;
     private Animator anim;
@@ -31,6 +32,7 @@ public class AI : MonoBehaviour {
         anim = GetComponentInChildren<Animator>();
         nav = GetComponent<NavMeshAgent>();
         isWaiting = false;
+        PlayerPrefs.SetInt("RandomItem", 0);
     }
 	
 	// Update is called once per frame
@@ -104,6 +106,12 @@ public class AI : MonoBehaviour {
        
     }
 
+    void RandomItem()
+    {
+        randomItem = Random.Range(0, 51);
+
+    }
+
     IEnumerator strikedelay()
     {
         yield return new WaitForSeconds(AttactSpeed);
@@ -118,7 +126,27 @@ public class AI : MonoBehaviour {
         //hide enemy
         anim.SetBool("die", false);
         gameObject.SetActive(false);
-        Instantiate(Bonus,transform.position,Quaternion.identity);
+        RandomItem();
+        Vector3 pos = transform.position;
+        pos.y -= 1;
+        transform.position = pos;
+        if (randomItem < 10)
+        {
+            print("health");
+            PlayerPrefs.SetInt("RandomItem", randomItem);
+            Instantiate(Bonus[0], pos, Quaternion.identity);
+        }
+        if (randomItem > 10 && randomItem < 40)
+        {
+            print("ammo");
+            PlayerPrefs.SetInt("RandomItem", randomItem);
+            Instantiate(Bonus[1], pos, Quaternion.identity);
+        }
+        if (randomItem > 40)
+        {
+            PlayerPrefs.SetInt("RandomItem", randomItem);
+            print("nothing");
+        }
         Destroy(gameObject);
     }
 }

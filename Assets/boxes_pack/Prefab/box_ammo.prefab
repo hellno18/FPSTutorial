@@ -195,6 +195,8 @@ GameObject:
   m_Component:
   - component: {fileID: 461146}
   - component: {fileID: 9514650}
+  - component: {fileID: 3455131933963488152}
+  - component: {fileID: 7891575032611267768}
   m_Layer: 0
   m_Name: box_ammo
   m_TagString: Untagged
@@ -237,3 +239,30 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &3455131933963488152
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 183502}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.48126638, y: 0.26303864, z: 1}
+  m_Center: {x: -0.0011493266, y: 0.14496672, z: 0}
+--- !u!114 &7891575032611267768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 183502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d2c3e57bd913c74fa4d056b6252f496, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthRecover: 30
+  ammoRefill: 20

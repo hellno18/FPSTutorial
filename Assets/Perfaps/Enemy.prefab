@@ -100,7 +100,9 @@ MonoBehaviour:
   AttactSpeed: 1
   seeSight: 5
   distance: 2
-  Bonus: {fileID: 4326277555617572905, guid: 417155d861b32ac4d9e8b13bd1365983, type: 3}
+  Bonus:
+  - {fileID: 165310, guid: 4cdcc6c16809ba5439c8798d9bb925f4, type: 3}
+  - {fileID: 183502, guid: 4656138d9606a80408030bdc231b1233, type: 3}
 --- !u!195 &7480761904505941918
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -144,14 +146,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4833035312117278}
     m_Modifications:
-    - target: {fileID: 1300611964618398, guid: 0584839bceadb844fa31b1ca352056ba, type: 3}
-      propertyPath: m_Name
-      value: Zombie
-      objectReference: {fileID: 0}
-    - target: {fileID: 1300611964618398, guid: 0584839bceadb844fa31b1ca352056ba, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 4846736819855508, guid: 0584839bceadb844fa31b1ca352056ba, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -195,6 +189,14 @@ PrefabInstance:
     - target: {fileID: 4846736819855508, guid: 0584839bceadb844fa31b1ca352056ba, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1300611964618398, guid: 0584839bceadb844fa31b1ca352056ba, type: 3}
+      propertyPath: m_Name
+      value: Zombie
+      objectReference: {fileID: 0}
+    - target: {fileID: 1300611964618398, guid: 0584839bceadb844fa31b1ca352056ba, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1074072323130556, guid: 0584839bceadb844fa31b1ca352056ba, type: 3}
       propertyPath: m_StaticEditorFlags
