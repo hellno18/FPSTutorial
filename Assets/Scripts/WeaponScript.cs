@@ -122,6 +122,11 @@ public class WeaponScript : MonoBehaviour
                 hidrant.setHidrant(true);
                 Debug.Log("EFECT!!");
             }
+            else if (hit.collider.tag == "Explosion")
+            {
+                Explosion explosion = hit.collider.GetComponent<Explosion>();
+                explosion.setExplosion(true);
+            }
         }
     }
 

@@ -24,6 +24,7 @@ public class Hidrant : MonoBehaviour
         {
             Instantiate(particle, this.transform.position, q);
             isCreate = true;
+            
         }
            
 

@@ -62,8 +62,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\FPS Kit By (HDGameP)\My Kit\G36C\Scripts\WeaponAnimation.cs" />
+    <Compile Include="Assets\Fx Explosion Pack\Script\csDemoScenceControl.cs" />
+    <Compile Include="Assets\Fx Explosion Pack\Script\csLightControl.cs" />
+    <Compile Include="Assets\Fx Explosion Pack\Script\csMouseOrbit.cs" />
+    <Compile Include="Assets\Fx Explosion Pack\Script\DestroyEffect.cs" />
     <Compile Include="Assets\Scripts\AI.cs" />
     <Compile Include="Assets\Scripts\Crouch.cs" />
+    <Compile Include="Assets\Scripts\Effect\Explosion.cs" />
     <Compile Include="Assets\Scripts\Effect\Hidrant.cs" />
     <Compile Include="Assets\Scripts\Item.cs" />
     <Compile Include="Assets\Scripts\PlayerScore.cs" />
