@@ -10,6 +10,8 @@ TagManager:
   - LevelPart
   - Enemy
   - Hidrant
+  - Fire
+  - Explosion
   layers:
   - Default
   - TransparentFX

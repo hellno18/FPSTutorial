@@ -81,6 +81,7 @@
     <None Include="Assets\FPS Kit By (HDGameP)\My Kit\G36C\Shaders\BumpedSpecular2.shader" />
     <None Include="Assets\FPS Kit By (HDGameP)\My Kit\Colt m9\Shaders\BackfaceBumpedDiffuse.shader" />
     <None Include="Assets\Allegorithmic\Plugins\engine_build_info.txt" />
+    <None Include="Assets\Environment\Contractors\RuinedCar\Shaders\Normal-BumpSpec.shader" />
     <None Include="Assets\Allegorithmic\Plugins\EULA.txt" />
     <None Include="Assets\FPS Kit By (HDGameP)\My Kit\Colt m9\Shaders\BumpedSpecular2.shader" />
     <None Include="Assets\FPS Kit By (HDGameP)\My Kit\Shaders\TeamFortness2Shader.shader" />
