@@ -67,6 +67,7 @@
     <Compile Include="Assets\Fx Explosion Pack\Script\csMouseOrbit.cs" />
     <Compile Include="Assets\Fx Explosion Pack\Script\DestroyEffect.cs" />
     <Compile Include="Assets\Scripts\AI.cs" />
+    <Compile Include="Assets\Scripts\CheckEnemy.cs" />
     <Compile Include="Assets\Scripts\Crouch.cs" />
     <Compile Include="Assets\Scripts\Effect\Explosion.cs" />
     <Compile Include="Assets\Scripts\Effect\Hidrant.cs" />

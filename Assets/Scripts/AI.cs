@@ -147,6 +147,10 @@ public class AI : MonoBehaviour {
             PlayerPrefs.SetInt("RandomItem", randomItem);
             print("nothing");
         }
+
+        //cast to check enemy
+        CheckEnemy checkenemy= GameObject.Find("GameController").GetComponent<CheckEnemy>();
+        checkenemy.DecreaseEnemy(1); 
         Destroy(gameObject);
     }
 }
