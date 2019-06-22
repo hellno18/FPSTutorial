@@ -67,7 +67,6 @@
     <Compile Include="Assets\Fx Explosion Pack\Script\csMouseOrbit.cs" />
     <Compile Include="Assets\Fx Explosion Pack\Script\DestroyEffect.cs" />
     <Compile Include="Assets\Scripts\AI.cs" />
-    <Compile Include="Assets\Scripts\CheckEnemy.cs" />
     <Compile Include="Assets\Scripts\Crouch.cs" />
     <Compile Include="Assets\Scripts\Effect\Explosion.cs" />
     <Compile Include="Assets\Scripts\Effect\Hidrant.cs" />
@@ -75,7 +74,9 @@
     <Compile Include="Assets\Scripts\PlayerScore.cs" />
     <Compile Include="Assets\Scripts\SpawnCreep.cs" />
     <Compile Include="Assets\Scripts\Sprint.cs" />
-    <Compile Include="Assets\Scripts\TimeSystem.cs" />
+    <Compile Include="Assets\Scripts\System\CheckEnemy.cs" />
+    <Compile Include="Assets\Scripts\System\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\System\TimeSystem.cs" />
     <Compile Include="Assets\Scripts\WeaponScript.cs" />
     <None Include="Assets\FPS Kit By (HDGameP)\My Kit\M4A1\Shaders\BumpedSpecular2.shader" />
     <None Include="Assets\FPS Kit By (HDGameP)\My Kit\G18\Shaders\BumpedSpecular2.shader" />

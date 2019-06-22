@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scene/Main.unity
+- path: E:/github/Gamejam/Assets/Scenes/MainMenu.unity
   isLoaded: 1
   isActive: 1

@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 950, y: 300}
+  m_MinSize: {x: 950, y: 498}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -116,7 +116,7 @@ MonoBehaviour:
   m_MinSize: {x: 917, y: 448}
   m_MaxSize: {x: 22012, y: 10024}
   vertical: 0
-  controlID: 52
+  controlID: 141
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_MinSize: {x: 202, y: 448}
   m_MaxSize: {x: 4002, y: 8048}
   vertical: 1
-  controlID: 13
+  controlID: 61
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -169,7 +169,7 @@ MonoBehaviour:
   - {fileID: 14}
   - {fileID: 15}
   m_Selected: 0
-  m_LastSelected: 1
+  m_LastSelected: 2
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -386,9 +386,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 77.43019, y: -8.121702, z: 46.25104}
+    m_Target: {x: 59.561172, y: -5.44133, z: 45.11564}
     speed: 2
-    m_Value: {x: 77.43019, y: -8.121702, z: 46.25104}
+    m_Value: {x: 59.561172, y: -5.44133, z: 45.11564}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -416,13 +416,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: -0.21447808, y: 0.6086682, z: -0.1756014, w: -0.74342877}
+    m_Target: {x: -0.010348992, y: 0.70598274, z: 0.010322119, w: 0.70807827}
     speed: 2
-    m_Value: {x: -0.21447808, y: 0.6086682, z: -0.1756014, w: -0.74342877}
+    m_Value: {x: -0.010348992, y: 0.70598274, z: 0.010322119, w: 0.70807827}
   m_Size:
-    m_Target: 13.641603
+    m_Target: 1.9128981
     speed: 2
-    m_Value: 13.641603
+    m_Value: 1.9128981
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -554,8 +554,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 73
-    width: 706
-    height: 465
+    width: 502
+    height: 305
   m_PersistentViewDataDictionary: {fileID: 0}
 --- !u!114 &16
 MonoBehaviour:
@@ -586,9 +586,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: d2350000
+      m_SelectedIDs: de310000
       m_LastClickedID: 0
-      m_ExpandedIDs: d4fbffff
+      m_ExpandedIDs: aa87fefff0a1feff44a2feff4ecbfeff72cbfefffeccfeff04cdfeffcefcfeff180cffffb2a3ffffd4fbffff1062000000660000508a0200
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -650,20 +650,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Models_Doom/doom/skydoom
+    - Assets/Scene
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Models_Doom/doom/skydoom
+  - Assets/Scene
   m_LastFoldersGridSize: -1
   m_LastProjectPath: E:\github\FPSTutorial
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: d2350000
-    m_LastClickedID: 13778
-    m_ExpandedIDs: 00000000c028000080290000ce2b0000262c00002a2e0000422e0000fc2e0000662f00008a300000c2300000983200004e33000020350000cc3500007637000054380000ec380000fc380000124200001442000016420000184200001a42000000ca9a3b
+    m_SelectedIDs: 002c0000
+    m_LastClickedID: 11264
+    m_ExpandedIDs: 00000000ba2800007a290000c82b0000222e00003a2e0000f42e0000823000008e32000016350000c23500001a3600006a370000e0380000f038000006420000084200000a4200000c4200000e4200006c4200006e42000074e4000024e5000026e500002ee5000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -691,7 +691,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000c028000080290000ce2b00002a2e0000422e0000fc2e0000662f00008a300000c230000016320000983200004e33000020350000cc3500007637000054380000ec380000fc380000124200001442000016420000184200001a420000
+    m_ExpandedIDs: 00000000ba2800007a290000c82b0000202c0000222e00003a2e0000f42e00005e2f000082300000ba3000008e3200004433000016350000c23500006a37000048380000e0380000f038000006420000084200000a4200000c4200000e420000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -735,7 +735,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 11}
+      m_ClientGUIView: {fileID: 10}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
