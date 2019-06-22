@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CheckEnemy : MonoBehaviour
 {
@@ -18,10 +19,22 @@ public class CheckEnemy : MonoBehaviour
     {
         //update to display
         remainingEnemyText.text = enemyRemaining.ToString();
+        if (enemyRemaining < 0)
+        {
+            StartCoroutine(Delay());
+        }
     }
 
     public void DecreaseEnemy(int x)
     {
         enemyRemaining -= x;
+    }
+
+    //give delay 1 second
+    IEnumerator Delay()
+    {
+        enemyRemaining = 0;
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene("Result");
     }
 }
