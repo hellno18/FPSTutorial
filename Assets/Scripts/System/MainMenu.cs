@@ -5,10 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    bool isJapanese;
     // Start is called before the first frame update
     void Start()
     {
-        
+        isJapanese = false;
     }
 
     public void StartButton()
@@ -21,8 +22,23 @@ public class MainMenu : MonoBehaviour
 
     }
 
+    public void Japanese()
+    {
+        isJapanese = true;
+    }
+
+    public void English()
+    {
+        isJapanese = false;
+    }
+
     public void Exit()
     {
         Application.Quit();
+    }
+
+    public bool GetBool()
+    {
+        return isJapanese;
     }
 }
