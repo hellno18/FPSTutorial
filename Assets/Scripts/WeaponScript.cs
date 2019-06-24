@@ -105,17 +105,17 @@ public class WeaponScript : MonoBehaviour
         if(Physics.Raycast(rayOrigin,maincam.transform.forward,out hit))
         {
             //when hit tag like "enemy" 
-            if (hit.collider.tag == "Enemy")
+            if (hit.transform.gameObject.tag == "Enemy")
             {
                 if (hit.collider.GetComponent<AI>().health <= Damage)
                 {
                     player.ScoreAdd(50);
                 }
-                //give damage to player
+                //give damage to enemy
                 hit.collider.GetComponent<AI>().Damage(Damage);
                 //add score
                 player.ScoreAdd(Damage);
-                Debug.Log("HIT!!!");
+                //Debug.Log("HIT!!!");
             }
             else if(hit.collider.tag=="Hidrant"){
                 Hidrant hidrant = hit.collider.GetComponent<Hidrant>();
@@ -126,6 +126,14 @@ public class WeaponScript : MonoBehaviour
             {
                 Explosion explosion = hit.collider.GetComponent<Explosion>();
                 explosion.setExplosion(true);
+            }
+           else if (hit.collider.tag == "Head")
+            {
+                print("HEAD");
+                //give damage to Head (HeadShot System)
+                hit.collider.GetComponentInParent<AI>().Damage(100);
+                //add score
+                player.ScoreAdd(100);
             }
         }
     }

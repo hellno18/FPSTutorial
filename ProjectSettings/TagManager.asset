@@ -12,6 +12,7 @@ TagManager:
   - Hidrant
   - Fire
   - Explosion
+  - Head
   layers:
   - Default
   - TransparentFX
