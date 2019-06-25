@@ -4,32 +4,35 @@ using UnityEngine;
 using UnityEngine.UI;
 public class WeaponScript : MonoBehaviour
 {
-    public int Ammo;
-    public int AmmoLeft;        //left ammo
-    public int AmmoClip;        // ammo clip
-    public int AmmoMax;         //max of ammo
-    public float Firetime;
-    public float Reloadtime;
+    //変数（Ammoやダメージやリロードタイムなど）
     public string FireAnim;
     public string ReloadAnim;
     public string DrawAnim;
     public string IdleAnim;
-    public int Damage;
-    public bool canFire;
     public AudioClip Firesound;
     public AudioClip FireReloadSound;
     public Text AmmoUI;
     public Text AmmoLeftUI;
-    public GameObject muzzleFlashObject;
-    public ParticleSystem muzzleFlash;
-    public GameObject effect;
-    public Camera maincam;
+    public GameObject MuzzleFlashObject;
+    public ParticleSystem MuzzleFlash;
+    public GameObject Effect;
+    public Camera MainCamera;
+    [SerializeField] int ammo=30;
+    [SerializeField] int ammoLeft=150;        //left ammo
+    [SerializeField] int ammoClip=30;        // ammo clip
+    [SerializeField] int ammoMax=180;         //max of ammo
+    [SerializeField] float fireTime=0.25f;
+    [SerializeField] float reloadTime = 3;
+    [SerializeField] int Damage=30;
+    bool canFire;
+   
+   
     public PlayerScore player;
     // Use this for initialization
     void Start()
     {
         GetComponent<Animation>().Blend(DrawAnim);
-        muzzleFlash =GetComponentInChildren<ParticleSystem>();
+        MuzzleFlash =GetComponentInChildren<ParticleSystem>();
         canFire = false;
         StartCoroutine(drawdelay());
     }
@@ -43,25 +46,25 @@ public class WeaponScript : MonoBehaviour
     void Update()
     {
         //ammo  
-        AmmoUI.text = Ammo.ToString() + "/";
+        AmmoUI.text = ammo.ToString() + "/";
         //ammo left
-        AmmoLeftUI.text = AmmoLeft.ToString();
+        AmmoLeftUI.text = ammoLeft.ToString();
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
-            if (touch.phase == TouchPhase.Began && canFire && Ammo > 0)
+            if (touch.phase == TouchPhase.Began && canFire && ammo > 0)
             {
                 // while pressed touch or right click, call fire function
                 Fire();
             }
         }
-        if (Input.GetMouseButton(0) && canFire && Ammo > 0)
+        if (Input.GetMouseButton(0) && canFire && ammo > 0)
         {
             // while pressed touch or right click, call fire function
             Fire();
         }
 
-        if (Input.GetKey(KeyCode.R) && canFire && Ammo >= 0 &&Ammo<30)
+        if (Input.GetKey(KeyCode.R) && canFire && ammo >= 0 &&ammo<30)
         {
             //While pressed R, call reload function
             Reload();
@@ -73,7 +76,7 @@ public class WeaponScript : MonoBehaviour
         canFire = false;
         GetComponent<Animation>().Blend(ReloadAnim);
         GetComponent<AudioSource>().PlayOneShot(FireReloadSound);
-        AmmoLeft += Ammo - 30;
+        ammoLeft += ammo - 30;
 
         //reload delay by Reloadtime
         StartCoroutine(reloaddelay());
@@ -82,7 +85,7 @@ public class WeaponScript : MonoBehaviour
 
     void Fire()
     {
-        Ammo -= 1;
+        ammo -= 1;
         GetComponent<Animation>().Stop(FireAnim);
         GetComponent<Animation>().Blend(FireAnim);
         GetComponent<AudioSource>().PlayOneShot(Firesound);
@@ -94,15 +97,15 @@ public class WeaponScript : MonoBehaviour
         //flash effect while firing by 0.15f
         StartCoroutine(flashdelay());
 
-        muzzleFlashObject.SetActive(true);
-        effect.SetActive(true);
+        MuzzleFlashObject.SetActive(true);
+        Effect.SetActive(true);
 
         //muzzleFlash play particle effect
-        muzzleFlash.Play();
-        Vector3 rayOrigin = maincam.ViewportToWorldPoint(new Vector3(0.5f,0.5f,0.0f));
+        MuzzleFlash.Play();
+        Vector3 rayOrigin = MainCamera.ViewportToWorldPoint(new Vector3(0.5f,0.5f,0.0f));
         RaycastHit hit;
 
-        if(Physics.Raycast(rayOrigin,maincam.transform.forward,out hit))
+        if(Physics.Raycast(rayOrigin,MainCamera.transform.forward,out hit))
         {
             //when hit tag like "enemy" 
             if (hit.collider.tag == "Enemy")
@@ -138,24 +141,46 @@ public class WeaponScript : MonoBehaviour
         }
     }
 
+    //Get AmmoLeft関数
+    public int GetAmmoLeft()
+    {
+        return ammoLeft;
+    }
+    //SET AmmoLeft関数
+    public void SetAmmoLeft(int ammoleft)
+    {
+        ammoLeft = ammoleft;
+    }
+
+    //Get AmmoMax関数
+    public int GetAmmoMax()
+    {
+        return ammoMax;
+    }
+    //SET CanFire 関数
+    public void SetCanFire(bool canfire)
+    {
+        canFire = canfire;
+    }
+
     IEnumerator firedelay()
     {
-        yield return new WaitForSeconds(Firetime);
+        yield return new WaitForSeconds(fireTime);
         canFire = true;
     }
     IEnumerator reloaddelay()
     {
-        yield return new WaitForSeconds(Reloadtime);
+        yield return new WaitForSeconds(reloadTime);
         canFire = true;
-        Ammo = AmmoClip;
+        ammo = ammoClip;
     }
     
 
     IEnumerator flashdelay()
     {
         yield return new WaitForSeconds(0.15f);
-        muzzleFlashObject.SetActive(false);
-        effect.SetActive(false);
-        muzzleFlash.Stop();
+        MuzzleFlashObject.SetActive(false);
+        Effect.SetActive(false);
+        MuzzleFlash.Stop();
     }
 }

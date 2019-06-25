@@ -1934,6 +1934,16 @@ PrefabInstance:
       propertyPath: hurtscreen
       value: 
       objectReference: {fileID: 1194748640}
+    - target: {fileID: 3952185504195948891, guid: 5e9e851c0e142814dac026a256ba2ac0,
+        type: 3}
+      propertyPath: HealthSlider
+      value: 
+      objectReference: {fileID: 1550029641}
+    - target: {fileID: 3952185504195948891, guid: 5e9e851c0e142814dac026a256ba2ac0,
+        type: 3}
+      propertyPath: HurtScreen
+      value: 
+      objectReference: {fileID: 1194748640}
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 62.81
@@ -4172,6 +4182,11 @@ PrefabInstance:
       propertyPath: Target
       value: 
       objectReference: {fileID: 25608726}
+    - target: {fileID: 114506158751900320, guid: e85ce3fc349976943ba158f292308806,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 25608726}
     - target: {fileID: 5152028095909492167, guid: e85ce3fc349976943ba158f292308806,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4992,6 +5007,27 @@ PrefabInstance:
       propertyPath: effect
       value: 
       objectReference: {fileID: 129997617}
+    - target: {fileID: 114031218477492458, guid: 491a2f04490f74649909790d7c582e59,
+        type: 3}
+      propertyPath: MuzzleFlashObject
+      value: 
+      objectReference: {fileID: 20277820}
+    - target: {fileID: 114031218477492458, guid: 491a2f04490f74649909790d7c582e59,
+        type: 3}
+      propertyPath: MuzzleFlash
+      value: 
+      objectReference: {fileID: 198244652942391140, guid: 9292aa38deb1982438f81ef1bf636282,
+        type: 3}
+    - target: {fileID: 114031218477492458, guid: 491a2f04490f74649909790d7c582e59,
+        type: 3}
+      propertyPath: Effect
+      value: 
+      objectReference: {fileID: 129997617}
+    - target: {fileID: 114031218477492458, guid: 491a2f04490f74649909790d7c582e59,
+        type: 3}
+      propertyPath: MainCamera
+      value: 
+      objectReference: {fileID: 1581781369}
     - target: {fileID: 400100, guid: 491a2f04490f74649909790d7c582e59, type: 3}
       propertyPath: m_LocalPosition.x
       value: 65.500015

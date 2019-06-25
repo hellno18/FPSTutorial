@@ -115,7 +115,8 @@ public class AI : MonoBehaviour {
         {
             //ダメージ
             target.GetComponent<PlayerScore>().hurt(hitDamage);
-            target.GetComponent<PlayerScore>().hurtscreentimer = 2;
+            //赤いシーン出る
+            target.GetComponent<PlayerScore>().SetHurtTimer(2);
             _isWaiting = true;
             //call strikedelay to delay by AttactSpeed
             StartCoroutine(StrikeDelay());
