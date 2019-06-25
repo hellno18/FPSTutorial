@@ -7,14 +7,14 @@ using UnityEngine.SceneManagement;
 public class CheckEnemy : MonoBehaviour
 {
     //TEXT　UI変数
-    public Text remainingEnemyText;
-    // 残り敵の変数
+    public Text RemainingEnemyText;
+    // 残り敵のローカル変数
     int enemyRemaining = 26;
     // Start is called before the first frame update
     void Start()
     {
         //enemyRemainingINT型からString型に変数するとremainingEnemyTextで表示する
-        remainingEnemyText.text = enemyRemaining.ToString();
+        RemainingEnemyText.text = enemyRemaining.ToString();
     }
 
     // Update is called once per frame
@@ -22,7 +22,7 @@ public class CheckEnemy : MonoBehaviour
     {
         //表示を更新（time.deltaTime）
         //update to display
-        remainingEnemyText.text = enemyRemaining.ToString();
+        RemainingEnemyText.text = enemyRemaining.ToString();
         //enemyRemainingは０以下
         if (enemyRemaining < 0)
         {

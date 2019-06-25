@@ -16,7 +16,7 @@ public class MainMenu : MonoBehaviour
 
     //フェイドの早さ
     [SerializeField]
-    private float speed = 0.2f;
+    private float _speed = 0.2f;
 
     //ENUM CanvasFader
     private enum CanvasFader
@@ -50,7 +50,7 @@ public class MainMenu : MonoBehaviour
             case CanvasFader.FadeIn:
                 // 1は表示また０は表示しない
                 //　表示のエフェクトはフェイドIN
-                canvasGroupButton.alpha += speed;
+                canvasGroupButton.alpha += _speed;
                 if (canvasGroupButton.alpha > 1)
                 {
                     canvasGroupButton.alpha = 1;
@@ -63,7 +63,7 @@ public class MainMenu : MonoBehaviour
                 break;
             case CanvasFader.FadeOut:
                 //　表示のエフェクトはフェイドOUT
-                canvasGroupButton.alpha -= speed;
+                canvasGroupButton.alpha -= _speed;
                 if (canvasGroupButton.alpha < 0)
                 {
                     canvasGroupButton.alpha = 0;

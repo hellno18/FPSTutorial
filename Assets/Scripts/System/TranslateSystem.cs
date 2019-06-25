@@ -6,11 +6,11 @@ using UnityEngine.UI;
 
 public class TranslateSystem : MonoBehaviour
 {
-    public Text startButton;
-    public Text howToPlay;
-    public Text exit;
-    public Text backButton;
-    public Text howtoPlayText;
+    public Text StartButton;
+    public Text HowToPlay;
+    public Text Exit;
+    public Text BackButton;
+    public Text HowtoPlayText;
     MainMenu system;
     
     // Start is called before the first frame update
@@ -22,22 +22,26 @@ public class TranslateSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //system ブール型がTRUE
         if (system.GetBool())
         {
-            startButton.text = "スタート";
-            howToPlay.text = "遊び方";
-            exit.text = "閉じる";
-            backButton.text = "戻る";
-            howtoPlayText.text = "ASDW  -  移動\n" + "R - リロード\n" + "CTRL - しゃがむ\n" + "Shift - 走る\n" + "左クリック　-　シュート\n";
+            //日本語を翻訳する
+            StartButton.text = "スタート";
+            HowToPlay.text = "遊び方";
+            Exit.text = "閉じる";
+            BackButton.text = "戻る";
+            HowtoPlayText.text = "ASDW  -  移動\n" + "R - リロード\n" + "CTRL - しゃがむ\n" + "Shift - 走る\n" + "左クリック　-　シュート\n";
 
         }
+        //system ブール型がFalse
         else
         {
-            startButton.text = "Start";
-            howToPlay.text = "How To Play";
-            exit.text = "Exit";
-            backButton.text = "Back";
-            howtoPlayText.text = "ASDW  -  Movement\n" + "R - Reload\n" + "CTRL - Crouch\n" + "Shift - Sprint\n" + "Left - Click - Shoot\n";
+            //英語を翻訳する
+            StartButton.text = "Start";
+            HowToPlay.text = "How To Play";
+            Exit.text = "Exit";
+            BackButton.text = "Back";
+            HowtoPlayText.text = "ASDW  -  Movement\n" + "R - Reload\n" + "CTRL - Crouch\n" + "Shift - Sprint\n" + "Left - Click - Shoot\n";
         }
         
     }

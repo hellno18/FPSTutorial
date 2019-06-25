@@ -2448,25 +2448,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 475355266}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &475355268 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: 86948bb7ab2a8274aa6a73f0ed8b64d5,
-    type: 3}
-  m_PrefabInstance: {fileID: 475355266}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &475355269
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 475355268}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81b994fb9bd3b8a4d8cfd1123fd196b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Particle: {fileID: 0}
 --- !u!4 &476388293 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 5c9acc5654edcef4997ea8f91ccf258e,
@@ -4009,25 +3990,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 817229685}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &817229687 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: 86948bb7ab2a8274aa6a73f0ed8b64d5,
-    type: 3}
-  m_PrefabInstance: {fileID: 817229685}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &817229688
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 817229687}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81b994fb9bd3b8a4d8cfd1123fd196b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Particle: {fileID: 100012, guid: 85271e0b3a086764694959254f952dcd, type: 3}
 --- !u!1001 &828007201
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4873,8 +4835,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a181b590b245bc40a2789c743bd7d38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeTextMinutes: {fileID: 605921577}
-  timeTextSeconds: {fileID: 1397517087}
+  TimeTextMinutes: {fileID: 605921577}
+  TimeTextSeconds: {fileID: 1397517087}
   timeLimit: 120
   gamestatus: 0
 --- !u!4 &999581850
@@ -4903,7 +4865,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf2e254a1e4153448addb57d0b24bf17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  remainingEnemyText: {fileID: 352530777}
+  RemainingEnemyText: {fileID: 352530777}
 --- !u!4 &1031878050 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 93cf1c792a7a62048a63caa5108922d9,
@@ -5987,25 +5949,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1839876120}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1328396745 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: 86948bb7ab2a8274aa6a73f0ed8b64d5,
-    type: 3}
-  m_PrefabInstance: {fileID: 474385163}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1328396749
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1328396745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81b994fb9bd3b8a4d8cfd1123fd196b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Particle: {fileID: 100012, guid: 85271e0b3a086764694959254f952dcd, type: 3}
 --- !u!4 &1337979775 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: a03d40a2119b00e4ea30a894ecfc5e25,
@@ -8370,17 +8313,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6409495542743136920, guid: 28d375a433cc78c4fa3db00df795f14d,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6409495542743136920, guid: 28d375a433cc78c4fa3db00df795f14d,
-        type: 3}
-      propertyPath: Particle
-      value: 
-      objectReference: {fileID: 6955411397361880774, guid: 8c7ce41fcc3e5b641b58342db5427590,
-        type: 3}
     - target: {fileID: 6500000, guid: 28d375a433cc78c4fa3db00df795f14d, type: 3}
       propertyPath: m_IsTrigger
       value: 0
@@ -8522,12 +8454,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6409495542743136920, guid: 28d375a433cc78c4fa3db00df795f14d,
-        type: 3}
-      propertyPath: Particle
-      value: 
-      objectReference: {fileID: 6955411397361880774, guid: 8c7ce41fcc3e5b641b58342db5427590,
-        type: 3}
     - target: {fileID: 6500000, guid: 28d375a433cc78c4fa3db00df795f14d, type: 3}
       propertyPath: m_IsTrigger
       value: 0

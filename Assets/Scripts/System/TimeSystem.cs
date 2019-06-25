@@ -5,14 +5,19 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class TimeSystem : MonoBehaviour
 {
-    public Text timeTextMinutes;
-    public Text timeTextSeconds;
+    //TEXT 変数
+    public Text TimeTextMinutes;
+    public Text TimeTextSeconds;
     CanvasGroup pauseCanvas;
+    
+    //2分でタイムカウント
     [SerializeField]
     float timeLimit = 120f;
     float minutes;
     float seconds;
+    //isPauseブール型
     bool isPause;
+
     public enum GameStatus
     {
         Start,
@@ -20,6 +25,7 @@ public class TimeSystem : MonoBehaviour
         Pause,
         Dead
     }
+
     public GameStatus gamestatus;
     // Start is called before the first frame update
     void Start()
@@ -61,24 +67,27 @@ public class TimeSystem : MonoBehaviour
                 SceneManager.LoadScene("Result");
                 break;
         }
-
-        
     }
 
     //time countdown
     void TimeCountDown()
     {
+        //タイムを減らす
         timeLimit -= Time.deltaTime;
+        //分
         minutes = Mathf.Floor(timeLimit / 60);
+        //秒
         seconds = timeLimit % 60;
 
-        timeTextMinutes.text = ((int)minutes).ToString();
-        timeTextSeconds.text = ((int)seconds).ToString();
+        //タイムカウントを表示する
+        TimeTextMinutes.text = ((int)minutes).ToString();
+        TimeTextSeconds.text = ((int)seconds).ToString();
 
+        // タイムカウントは０になるとゲームが終わる
         if (timeLimit <= 0f)
         {
-            timeTextMinutes.text = "0";
-            timeTextSeconds.text = "0";
+            TimeTextMinutes.text = "0";
+            TimeTextSeconds.text = "0";
             gamestatus = GameStatus.Finished;
         }
     }
