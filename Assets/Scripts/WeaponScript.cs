@@ -23,8 +23,9 @@ public class WeaponScript : MonoBehaviour
     [SerializeField] int ammoMax=180;         //max of ammo
     [SerializeField] float fireTime=0.25f;
     [SerializeField] float reloadTime = 3;
-    [SerializeField] int Damage=30;
+    [SerializeField] int damage=30;
     bool canFire;
+    int chanceHeadShot;
    
    
     public PlayerScore player;
@@ -34,9 +35,11 @@ public class WeaponScript : MonoBehaviour
         GetComponent<Animation>().Blend(DrawAnim);
         MuzzleFlash =GetComponentInChildren<ParticleSystem>();
         canFire = false;
-        StartCoroutine(drawdelay());
+        StartCoroutine(DrawDelay());
     }
-    IEnumerator drawdelay()
+
+    //シュートできる関数
+    IEnumerator DrawDelay()
     {
         yield return new WaitForSeconds(0.25f);
         canFire = true;
@@ -58,12 +61,14 @@ public class WeaponScript : MonoBehaviour
                 Fire();
             }
         }
+        //クリックしたあと、シュートする
         if (Input.GetMouseButton(0) && canFire && ammo > 0)
         {
             // while pressed touch or right click, call fire function
             Fire();
         }
 
+        //リロードする
         if (Input.GetKey(KeyCode.R) && canFire && ammo >= 0 &&ammo<30)
         {
             //While pressed R, call reload function
@@ -71,6 +76,13 @@ public class WeaponScript : MonoBehaviour
         }
     }
 
+    void RandomChance()
+    {
+        //0-99
+        chanceHeadShot = Random.Range(0, 100);
+    }
+
+    //リロード関数
     void Reload()
     {
         canFire = false;
@@ -79,10 +91,11 @@ public class WeaponScript : MonoBehaviour
         ammoLeft += ammo - 30;
 
         //reload delay by Reloadtime
-        StartCoroutine(reloaddelay());
+        StartCoroutine(ReloadDelay());
         
     }
 
+    //シュート関数
     void Fire()
     {
         ammo -= 1;
@@ -92,11 +105,12 @@ public class WeaponScript : MonoBehaviour
         canFire = false;
 
         //fire delay by Firetime
-        StartCoroutine(firedelay());
+        StartCoroutine(FireDelay());
 
         //flash effect while firing by 0.15f
-        StartCoroutine(flashdelay());
+        StartCoroutine(FlashDelay());
 
+        //エフェクトをアクティブする
         MuzzleFlashObject.SetActive(true);
         Effect.SetActive(true);
 
@@ -110,33 +124,50 @@ public class WeaponScript : MonoBehaviour
             //when hit tag like "enemy" 
             if (hit.collider.tag == "Enemy")
             {
-                if (hit.collider.GetComponent<AI>().GetHealth() <= Damage)
+                if (hit.collider.GetComponent<AI>().GetHealth() <= damage)
                 {
                     player.ScoreAdd(50);
                 }
-                //give damage to enemy
-                hit.collider.GetComponent<AI>().Damage(Damage);
-                //add score
-                player.ScoreAdd(Damage);
+                //give damage to enemy　ダメージ与える
+                hit.collider.GetComponent<AI>().Damage(damage);
+                //add score スコア
+                player.ScoreAdd(damage);
                 //Debug.Log("HIT!!!");
             }
             else if(hit.collider.tag=="Hidrant"){
                 Hidrant hidrant = hit.collider.GetComponent<Hidrant>();
+                //エフェクト表示する
                 hidrant.setHidrant(true);
-                Debug.Log("EFECT!!");
+                //Debug.Log("EFECT!!");
             }
             else if (hit.collider.tag == "Explosion")
             {
                 Explosion explosion = hit.collider.GetComponent<Explosion>();
+                //エフェクト表示する
                 explosion.setExplosion(true);
             }
            else if (hit.collider.tag == "Head")
             {
                 print("HEAD");
-                //give damage to Head (HeadShot System)
-                hit.collider.GetComponentInParent<AI>().Damage(100);
-                //add score
-                player.ScoreAdd(100);
+                //乱数チャンスHEADSHOT
+                RandomChance();
+                if (chanceHeadShot > 0 && chanceHeadShot <= 50)
+                {
+                    //give damage to Head (HeadShot System)
+                    hit.collider.GetComponentInParent<AI>().Damage(damage/3*10);
+                    //add score　スコア
+                    player.ScoreAdd(damage / 3 * 10);
+                }
+                else
+                {
+                    //give damage to Head (HeadShot System)
+                    hit.collider.GetComponentInParent<AI>().Damage(damage/3);
+                    //add score　スコア
+                    player.ScoreAdd(damage/3);
+                }
+
+
+               
             }
         }
     }
@@ -163,20 +194,23 @@ public class WeaponScript : MonoBehaviour
         canFire = canfire;
     }
 
-    IEnumerator firedelay()
+    //シュートディレイ関数
+    IEnumerator FireDelay()
     {
         yield return new WaitForSeconds(fireTime);
         canFire = true;
     }
-    IEnumerator reloaddelay()
+
+    //リロードディレイ関数
+    IEnumerator ReloadDelay()
     {
         yield return new WaitForSeconds(reloadTime);
         canFire = true;
         ammo = ammoClip;
     }
-    
 
-    IEnumerator flashdelay()
+    //エフェクトのシュートディレイ関数
+    IEnumerator FlashDelay()
     {
         yield return new WaitForSeconds(0.15f);
         MuzzleFlashObject.SetActive(false);
