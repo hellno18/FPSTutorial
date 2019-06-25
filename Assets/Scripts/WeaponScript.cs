@@ -151,6 +151,7 @@ public class WeaponScript : MonoBehaviour
                 print("HEAD");
                 //乱数チャンスHEADSHOT
                 RandomChance();
+                //HeadShot 50%チャンス
                 if (chanceHeadShot > 0 && chanceHeadShot <= 50)
                 {
                     //give damage to Head (HeadShot System)
@@ -160,14 +161,11 @@ public class WeaponScript : MonoBehaviour
                 }
                 else
                 {
-                    //give damage to Head (HeadShot System)
+                    //give damage to Head (HeadShot System)　ダメージ/3倍
                     hit.collider.GetComponentInParent<AI>().Damage(damage/3);
                     //add score　スコア
                     player.ScoreAdd(damage/3);
                 }
-
-
-               
             }
         }
     }

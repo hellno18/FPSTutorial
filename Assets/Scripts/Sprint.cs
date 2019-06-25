@@ -9,20 +9,27 @@ public class Sprint : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //while pressed down left shift, player will start sprint 
+        //押したら、走る
         if (Input.GetKeyDown(KeyCode.LeftShift)){
-            sprintMethod();
+            //Sprint関数を呼ぶ
+            SprintMethod();
         }
+
+        //押した後、走る終わる
         //while pressed up left shift, player will stop sprint
         if (Input.GetKeyUp(KeyCode.LeftShift)){
-            endSprint();
+            //Sprint終わる関数を呼ぶ
+            EndSprint();
         }
     }
-
-    void sprintMethod()
+    //SprintMethod関数
+    void SprintMethod()
     {
         GetComponent<Animation>().Blend(SprintAnim);
     }
-    void endSprint()
+
+    //EndSprint関数
+    void EndSprint()
     {
         GetComponent<Animation>().Blend(ReturnAnim);
     }
