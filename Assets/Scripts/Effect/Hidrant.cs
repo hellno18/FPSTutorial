@@ -4,25 +4,36 @@ using UnityEngine;
 
 public class Hidrant : MonoBehaviour
 {
-    public GameObject particle;
+    //ゲームオブジェクト（アクター、ブール型変数など)
+    public GameObject Particle;
+
+    //boolean型の変数を宣言
     bool effect;
     bool isCreate;
+
     // Start is called before the first frame update
     void Awake()
     {
+        //EffectとisCreateがFalse
         effect = false;
         isCreate = false;
-        particle.GetComponent<ParticleSystem>();
+
+        //GETキャスト ParticleSystem
+        Particle.GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        // X方向にー９０゜回転にする
         Quaternion q = Quaternion.Euler(-90f, 0f, 0f); //rotate
-        
+
+        //effectがTrue AND isCreateがFalse
         if (effect&&!isCreate)
         {
-            Instantiate(particle, this.transform.position, q);
+            //particleを表示される
+            Instantiate(Particle, this.transform.position, q);
+            //isCreateがTrue
             isCreate = true;
             
         }
@@ -30,9 +41,11 @@ public class Hidrant : MonoBehaviour
 
     }
     
-    public bool setHidrant(bool x)
+    //SET水道栓の関数
+    public bool setHidrant(bool hydrant)
     {
-        effect=x;
-        return x;
+        //エフェクトは水道栓です.
+        effect = hydrant;
+        return hydrant;
     }
 }

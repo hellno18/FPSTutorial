@@ -5,12 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    //isJapaneseブール型の変数を宣言
     bool isJapanese;
-    CanvasGroup _canvasGroupButton;
-    GameObject _canvasGroupPanel;
+    //ゲームオブジェクトの変数を宣言
+    //ボタングループ
+    CanvasGroup canvasGroupButton;
+    //操作方法のゲームオブジェクト
+    GameObject canvasGroupPanel;
+    GameObject groupButton;
+
+    //フェイドの早さ
     [SerializeField]
     private float speed = 0.2f;
 
+    //ENUM CanvasFader
     private enum CanvasFader
     {
         None,
@@ -18,41 +26,51 @@ public class MainMenu : MonoBehaviour
         Finished,
         FadeOut
     }
-    private CanvasFader _fadeState;
+
+    private CanvasFader fadeState;
     // Start is called before the first frame update
     void Start()
     {
+        //isJapaneseがfalse
         isJapanese = false;
-        _fadeState = CanvasFader.None;
-        _canvasGroupButton = GameObject.Find("ButtonGroup").GetComponent<CanvasGroup>();
-        _canvasGroupPanel = GameObject.Find("Panel");
-        _canvasGroupPanel.SetActive(false);
+        fadeState = CanvasFader.None;
+        canvasGroupButton = GameObject.Find("ButtonGroup").GetComponent<CanvasGroup>();
+        groupButton = GameObject.Find("ButtonGroup");
+        canvasGroupPanel = GameObject.Find("Panel");
+
+        //canvasGroupPanelをアクティブしない
+        canvasGroupPanel.SetActive(false);
 
     }
 
     private void Update()
     {
-        switch (_fadeState)
+        switch (fadeState)
         {
             case CanvasFader.FadeIn:
-                _canvasGroupButton.alpha -= speed;
-                if (_canvasGroupButton.alpha < 0)
+                // 1は表示また０は表示しない
+                //　表示のエフェクトはフェイドIN
+                canvasGroupButton.alpha += speed;
+                if (canvasGroupButton.alpha > 1)
                 {
-                    _canvasGroupButton.alpha = 0;
-                    _fadeState= CanvasFader.Finished;
+                    canvasGroupButton.alpha = 1;
+                    fadeState = CanvasFader.None;
                 }
-                _canvasGroupPanel.SetActive(true);
+                canvasGroupPanel.SetActive(false);
+                groupButton.SetActive(true);
                 break;
             case CanvasFader.Finished:
                 break;
             case CanvasFader.FadeOut:
-                _canvasGroupButton.alpha += speed;
-                if(_canvasGroupButton.alpha > 1)
+                //　表示のエフェクトはフェイドOUT
+                canvasGroupButton.alpha -= speed;
+                if (canvasGroupButton.alpha < 0)
                 {
-                    _canvasGroupButton.alpha = 1;
-                    _fadeState = CanvasFader.None;
+                    canvasGroupButton.alpha = 0;
+                    fadeState = CanvasFader.Finished;
                 }
-                _canvasGroupPanel.SetActive(false);
+                canvasGroupPanel.SetActive(true);
+                groupButton.SetActive(false);
                 break;
 
         }
@@ -60,12 +78,13 @@ public class MainMenu : MonoBehaviour
 
     public void StartButton()
     {
+        //Main シーンに移動
         SceneManager.LoadScene("Main");
     }
 
     public void HowToPlay()
     {
-        _fadeState = CanvasFader.FadeIn;
+        fadeState = CanvasFader.FadeOut;
     }
 
     public void Japanese()
@@ -85,9 +104,10 @@ public class MainMenu : MonoBehaviour
 
     public void Back()
     {
-        _fadeState = CanvasFader.FadeOut;
+        fadeState = CanvasFader.FadeIn;
     }
 
+    //GETブール型
     public bool GetBool()
     {
         return isJapanese;

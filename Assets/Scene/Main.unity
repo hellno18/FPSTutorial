@@ -2466,7 +2466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81b994fb9bd3b8a4d8cfd1123fd196b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particle: {fileID: 100012, guid: 85271e0b3a086764694959254f952dcd, type: 3}
+  Particle: {fileID: 0}
 --- !u!4 &476388293 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 5c9acc5654edcef4997ea8f91ccf258e,
@@ -4009,6 +4009,25 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 817229685}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &817229687 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 86948bb7ab2a8274aa6a73f0ed8b64d5,
+    type: 3}
+  m_PrefabInstance: {fileID: 817229685}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &817229688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 817229687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81b994fb9bd3b8a4d8cfd1123fd196b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Particle: {fileID: 100012, guid: 85271e0b3a086764694959254f952dcd, type: 3}
 --- !u!1001 &828007201
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5986,7 +6005,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81b994fb9bd3b8a4d8cfd1123fd196b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particle: {fileID: 100012, guid: 85271e0b3a086764694959254f952dcd, type: 3}
+  Particle: {fileID: 100012, guid: 85271e0b3a086764694959254f952dcd, type: 3}
 --- !u!4 &1337979775 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: a03d40a2119b00e4ea30a894ecfc5e25,
@@ -8356,6 +8375,12 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6409495542743136920, guid: 28d375a433cc78c4fa3db00df795f14d,
+        type: 3}
+      propertyPath: Particle
+      value: 
+      objectReference: {fileID: 6955411397361880774, guid: 8c7ce41fcc3e5b641b58342db5427590,
+        type: 3}
     - target: {fileID: 6500000, guid: 28d375a433cc78c4fa3db00df795f14d, type: 3}
       propertyPath: m_IsTrigger
       value: 0
@@ -8497,6 +8522,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6409495542743136920, guid: 28d375a433cc78c4fa3db00df795f14d,
+        type: 3}
+      propertyPath: Particle
+      value: 
+      objectReference: {fileID: 6955411397361880774, guid: 8c7ce41fcc3e5b641b58342db5427590,
+        type: 3}
     - target: {fileID: 6500000, guid: 28d375a433cc78c4fa3db00df795f14d, type: 3}
       propertyPath: m_IsTrigger
       value: 0
