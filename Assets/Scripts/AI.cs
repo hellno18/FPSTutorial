@@ -12,6 +12,7 @@ public class AI : MonoBehaviour {
     [SerializeField] int attackSpeed=1;
     [SerializeField] float seeSight=5f;
     [SerializeField] float distance=4f;
+    [SerializeField] float far = 1.4f;
     [SerializeField] GameObject[] Bonus;
     //アイテム
     int randomItem;
@@ -34,12 +35,15 @@ public class AI : MonoBehaviour {
         anim = GetComponentInChildren<Animator>();
         nav = GetComponent<NavMeshAgent>();
         _isWaiting = false;
+        //SET RandomItemが0
         PlayerPrefs.SetInt("RandomItem", 0);
     }
 	
 	// Update is called once per frame
 	void Update () {
+        //プレイヤーと敵の環境
         distance = Vector3.Distance(target.position, enemy.position);
+        //もし敵はプレイヤーを見える
         if (distance < seeSight )
         {
             enemyState = EnemyState.walk;
@@ -54,45 +58,53 @@ public class AI : MonoBehaviour {
             //nav.Resume();
             nav.isStopped = false;
             nav.SetDestination(target.position);
-            if (distance<1.4f)
+            
+            //プレイヤーと敵近く場合は
+            if (distance< far)
             {
                 //stop nav agent
                 //nav.Stop();
                 nav.isStopped=true;
-                //walk animation
+                //walk animation stopped
                 anim.SetBool("walk", false);
-                             
+                
+                //Attack state
                 enemyState = EnemyState.attack;
-                if(!_isWaiting) Strike();
+                if(!_isWaiting) Strike(); // Strike関数を呼ぶ
             }
         
         }
+        //見えないとき
         else
         {
             enemyState=EnemyState.idle;
-            //walk animation
+            //walk animation stopped
             anim.SetBool("walk", false);
         }
 
-       
+       //HPは０以下
         if (health <= 0)
         {
-            //call die function when health is below than 0
+            //call die function when health is below than 0. 
+            //Die関数を呼び
             Die();
+            //HPが０になる
             health = 0;
         }
 	}
 
-   
+   //HPはダメージを与える
     public void Damage(int damage)
     {
         health -= damage;
     }
 
+    //DIE関数
     void Die()
     {
         anim.SetBool("die", true);
-        StartCoroutine(diedelay());
+        //diedelay関数を呼び、ディレイを上げる.
+        StartCoroutine(DieDelay());
     }
 
     void Strike()
@@ -101,15 +113,17 @@ public class AI : MonoBehaviour {
         Debug.Log("Player Attack");
         if (anim.GetBool("attack"))
         {
+            //ダメージ
             target.GetComponent<PlayerScore>().hurt(hitDamage);
             target.GetComponent<PlayerScore>().hurtscreentimer = 2;
             _isWaiting = true;
             //call strikedelay to delay by AttactSpeed
-            StartCoroutine(strikedelay());
+            StartCoroutine(StrikeDelay());
         }
        
     }
 
+    //乱数関数アイテム
     void RandomItem()
     {
         randomItem = Random.Range(0, 51);
@@ -122,7 +136,8 @@ public class AI : MonoBehaviour {
         return health;
     }
 
-    IEnumerator strikedelay()
+    //StrikeDelay関数
+    IEnumerator StrikeDelay()
     {
         yield return new WaitForSeconds(attackSpeed);
         //Enemy Attack  false
@@ -130,36 +145,47 @@ public class AI : MonoBehaviour {
         yield return new WaitForSeconds(attackSpeed);
         _isWaiting = false;
     }
-    IEnumerator diedelay()
+
+    //DieDelay関数
+    IEnumerator DieDelay()
     {
         yield return new WaitForSeconds(0.5f);
         //hide enemy
         anim.SetBool("die", false);
         gameObject.SetActive(false);
+        //randomitem関数を呼び、乱数をあげる
         RandomItem();
+        //ｙ方向ヴェクターは１です。
         Vector3 pos = transform.position;
         pos.y -= 1;
         transform.position = pos;
-        if (randomItem < 10)
+
+        /* 1-10 HP　　　回復アイテム
+           11-40 Ammo 　弾薬アイテム
+           41-50 Nothing　ない
+         */
+        if (randomItem <= 10)
         {
-            print("health");
+            //print("health");
             PlayerPrefs.SetInt("RandomItem", randomItem);
             Instantiate(Bonus[0], pos, Quaternion.identity);
         }
-        if (randomItem > 10 && randomItem < 40)
+        if (randomItem > 10 && randomItem <= 40)
         {
-            print("ammo");
+            //print("ammo");
             PlayerPrefs.SetInt("RandomItem", randomItem);
             Instantiate(Bonus[1], pos, Quaternion.identity);
         }
         if (randomItem > 40)
         {
+            //print("nothing");
             PlayerPrefs.SetInt("RandomItem", randomItem);
-            print("nothing");
+            
         }
 
         //cast to check enemy
         CheckEnemy checkenemy= GameObject.Find("GameController").GetComponent<CheckEnemy>();
+        //敵を減らす
         checkenemy.DecreaseEnemy(1); 
         Destroy(gameObject);
     }
