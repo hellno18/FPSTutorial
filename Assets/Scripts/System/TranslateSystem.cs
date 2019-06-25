@@ -6,11 +6,14 @@ using UnityEngine.UI;
 
 public class TranslateSystem : MonoBehaviour
 {
+    //TEXT UI変数
     public Text StartButton;
     public Text HowToPlay;
     public Text Exit;
     public Text BackButton;
     public Text HowtoPlayText;
+
+    //MAINMENUをキャストする
     MainMenu system;
     
     // Start is called before the first frame update

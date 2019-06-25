@@ -105,9 +105,9 @@ public class WeaponScript : MonoBehaviour
         if(Physics.Raycast(rayOrigin,maincam.transform.forward,out hit))
         {
             //when hit tag like "enemy" 
-            if (hit.transform.gameObject.tag == "Enemy")
+            if (hit.collider.tag == "Enemy")
             {
-                if (hit.collider.GetComponent<AI>().health <= Damage)
+                if (hit.collider.GetComponent<AI>().GetHealth() <= Damage)
                 {
                     player.ScoreAdd(50);
                 }
