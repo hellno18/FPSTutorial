@@ -8,7 +8,7 @@ public class ResultScore : MonoBehaviour
 {
     public Text ResultScoreText;
     public Text FadeText;
-    public GameObject FPC;
+    
     private void Awake()
     {
         Cursor.lockState = CursorLockMode.None;
