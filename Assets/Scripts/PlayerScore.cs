@@ -11,17 +11,19 @@ public class PlayerScore : MonoBehaviour {
     //HP変数
     [SerializeField] int health=100;
     float HurtScreenTimer;
-    int Score;
+    int score;
     TimeSystem timesystem;
 	// Use this for initialization
 	void Start () {
+        score = 0;
         timesystem = GameObject.Find("GameController").GetComponent<TimeSystem>();
+        PlayerPrefs.SetInt("TotalScore", score);
 	}
 	
 	// Update is called once per frame
 	void Update () {
         //print score on ScoreUI
-        ScoreUI.text = Score.ToString();
+        ScoreUI.text = score.ToString();
         HealthSlider.value = health;
         //ダメージを受けるとき、タイマーが０以上
         if (HurtScreenTimer > 0)
@@ -60,7 +62,8 @@ public class PlayerScore : MonoBehaviour {
     //function for add Score by point
     public void ScoreAdd(int point)
     {
-        Score += point;
+        score += point;
+        PlayerPrefs.SetInt("TotalScore", point);
     }
 
     //SET SetHurtTimer関数

@@ -90,11 +90,13 @@ public class MainMenu : MonoBehaviour
     public void Japanese()
     {
         isJapanese = true;
+        PlayerPrefs.SetString("Language", "JP");
     }
 
     public void English()
     {
         isJapanese = false;
+        PlayerPrefs.SetString("Language", "EN");
     }
 
     public void Exit()

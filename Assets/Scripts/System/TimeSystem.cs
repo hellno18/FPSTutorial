@@ -41,11 +41,16 @@ public class TimeSystem : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            GameObject player = GameObject.Find("Player");
             if (!isPause)
             {
                 pauseCanvas.alpha = 1;
                 Time.timeScale = 0;
                 gamestatus = GameStatus.Pause;
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+                //打ってできない
+                player.GetComponentInChildren<WeaponScript>().SetCanFire(false);
                 isPause = true;
             }
             else
@@ -53,6 +58,9 @@ public class TimeSystem : MonoBehaviour
                 pauseCanvas.alpha = 0;
                 Time.timeScale = 1;
                 isPause = false;
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+                player.GetComponentInChildren<WeaponScript>().SetCanFire(true);
                 gamestatus = GameStatus.Start;
             }
             

@@ -76,6 +76,7 @@
     <Compile Include="Assets\Scripts\Sprint.cs" />
     <Compile Include="Assets\Scripts\System\CheckEnemy.cs" />
     <Compile Include="Assets\Scripts\System\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\System\ResultScore.cs" />
     <Compile Include="Assets\Scripts\System\TimeSystem.cs" />
     <Compile Include="Assets\Scripts\System\TranslateSystem.cs" />
     <Compile Include="Assets\Scripts\WeaponScript.cs" />
