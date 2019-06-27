@@ -140,14 +140,16 @@ public class AI : MonoBehaviour {
     }
 
 
-    //Destroy Effect Delay
-
+    // Effect Delay function
     IEnumerator EffectDelay()
     {
         Quaternion q = Quaternion.Euler(transform.position.x, transform.position.y, 90);
+        //GET location
         Vector3 location = target.GetComponentInChildren<WeaponScript>().GetPosition();
+        //Spawn object on location
         GameObject obj = Instantiate(BloodSpread, location, q).gameObject;
         yield return new WaitForSeconds(0.5f);
+        //破壊する
         Destroy(obj);
         
     }
@@ -203,6 +205,7 @@ public class AI : MonoBehaviour {
         CheckEnemy checkenemy= GameObject.Find("GameController").GetComponent<CheckEnemy>();
         //敵を減らす
         checkenemy.DecreaseEnemy(1); 
+        //破壊する
         Destroy(gameObject);
     }
 }

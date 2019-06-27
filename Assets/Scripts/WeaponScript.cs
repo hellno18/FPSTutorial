@@ -17,7 +17,7 @@ public class WeaponScript : MonoBehaviour
     public ParticleSystem MuzzleFlash;
     public GameObject Effect;
     public Camera MainCamera;
-   
+
     [SerializeField] int ammo=30;
     [SerializeField] int ammoLeft=150;        //left ammo
     [SerializeField] int ammoClip=30;        // ammo clip
@@ -62,6 +62,7 @@ public class WeaponScript : MonoBehaviour
                 Fire();
             }
         }
+
         //クリックしたあと、シュートする
         if (Input.GetMouseButton(0) && canFire && ammo > 0)
         {
@@ -76,6 +77,7 @@ public class WeaponScript : MonoBehaviour
             Reload();
         }
     }
+
 
     void RandomChance()
     {

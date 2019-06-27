@@ -29,6 +29,7 @@ public class Item : MonoBehaviour
         {
             if (randomItem <= 10)
             {
+               
                 //HPが１００以下
                 if (player.GetHealth() < 100)
                 {
@@ -74,4 +75,5 @@ public class Item : MonoBehaviour
             }
         }
     }
+
 }

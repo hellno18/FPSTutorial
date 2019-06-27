@@ -188,6 +188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthRecover: 30
+  ammoRefill: 20
 --- !u!1 &177648
 GameObject:
   m_ObjectHideFlags: 0
