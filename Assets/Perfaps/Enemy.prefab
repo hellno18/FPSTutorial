@@ -93,6 +93,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eadfd88bef06d874ebb2a1f7ea46d4ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BloodSpread: {fileID: 4020557279293651833, guid: d5cbe1fe141657d44901df03e96c112a,
+    type: 3}
   health: 100
   enemy: {fileID: 4833035312117278}
   target: {fileID: 0}
@@ -100,6 +102,7 @@ MonoBehaviour:
   attackSpeed: 1
   seeSight: 5
   distance: 2
+  far: 1.4
   Bonus:
   - {fileID: 165310, guid: 4cdcc6c16809ba5439c8798d9bb925f4, type: 3}
   - {fileID: 183502, guid: 4656138d9606a80408030bdc231b1233, type: 3}
@@ -146,14 +149,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4833035312117278}
     m_Modifications:
-    - target: {fileID: 1300611964618398, guid: 0584839bceadb844fa31b1ca352056ba, type: 3}
-      propertyPath: m_Name
-      value: Zombie
-      objectReference: {fileID: 0}
-    - target: {fileID: 1300611964618398, guid: 0584839bceadb844fa31b1ca352056ba, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 4846736819855508, guid: 0584839bceadb844fa31b1ca352056ba, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -197,6 +192,14 @@ PrefabInstance:
     - target: {fileID: 4846736819855508, guid: 0584839bceadb844fa31b1ca352056ba, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1300611964618398, guid: 0584839bceadb844fa31b1ca352056ba, type: 3}
+      propertyPath: m_Name
+      value: Zombie
+      objectReference: {fileID: 0}
+    - target: {fileID: 1300611964618398, guid: 0584839bceadb844fa31b1ca352056ba, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4465147877298448, guid: 0584839bceadb844fa31b1ca352056ba, type: 3}
       propertyPath: m_LocalPosition.y

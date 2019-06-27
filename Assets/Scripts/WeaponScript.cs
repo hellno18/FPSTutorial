@@ -17,6 +17,7 @@ public class WeaponScript : MonoBehaviour
     public ParticleSystem MuzzleFlash;
     public GameObject Effect;
     public Camera MainCamera;
+   
     [SerializeField] int ammo=30;
     [SerializeField] int ammoLeft=150;        //left ammo
     [SerializeField] int ammoClip=30;        // ammo clip
@@ -26,7 +27,7 @@ public class WeaponScript : MonoBehaviour
     [SerializeField] int damage=30;
     bool canFire;
     int chanceHeadShot;
-   
+    Vector3 positionHit;
    
     public PlayerScore player;
     // Use this for initialization
@@ -130,9 +131,13 @@ public class WeaponScript : MonoBehaviour
                 }
                 //give damage to enemy　ダメージ与える
                 hit.collider.GetComponent<AI>().Damage(damage);
+                //position hit
+                positionHit = new Vector3(hit.collider.transform.position.x-0.5f, hit.collider.transform.position.y, hit.collider.transform.position.z);
                 //add score スコア
                 player.ScoreAdd(damage);
                 //Debug.Log("HIT!!!");
+                
+                
             }
             else if(hit.collider.tag=="Hidrant"){
                 Hidrant hidrant = hit.collider.GetComponent<Hidrant>();
@@ -168,6 +173,11 @@ public class WeaponScript : MonoBehaviour
                 }
             }
         }
+    }
+
+    public Vector3 GetPosition()
+    {
+        return positionHit;
     }
 
     //Get AmmoLeft関数

@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class AI : MonoBehaviour {
     //敵の変数（HPや叩くスピードやアイテムなど）
+    public ParticleSystem BloodSpread;
     [SerializeField] int health=100;
     [SerializeField] Transform enemy;
     [SerializeField] Transform target;
@@ -97,6 +98,7 @@ public class AI : MonoBehaviour {
     public void Damage(int damage)
     {
         health -= damage;
+        StartCoroutine(EffectDelay());
     }
 
     //DIE関数
@@ -135,6 +137,19 @@ public class AI : MonoBehaviour {
     public int GetHealth()
     {
         return health;
+    }
+
+
+    //Destroy Effect Delay
+
+    IEnumerator EffectDelay()
+    {
+        Quaternion q = Quaternion.Euler(transform.position.x, transform.position.y, 90);
+        Vector3 location = target.GetComponentInChildren<WeaponScript>().GetPosition();
+        GameObject obj = Instantiate(BloodSpread, location, q).gameObject;
+        yield return new WaitForSeconds(0.5f);
+        Destroy(obj);
+        
     }
 
     //StrikeDelay関数
