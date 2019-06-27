@@ -5,7 +5,9 @@ using UnityEngine.AI;
 
 public class AI : MonoBehaviour {
     //敵の変数（HPや叩くスピードやアイテムなど）
-    public ParticleSystem BloodSpread;
+    [SerializeField] AudioClip attackZombieSFX;
+    [SerializeField] AudioClip hitZombieSFX;
+    [SerializeField] ParticleSystem bloodSpread;
     [SerializeField] int health=100;
     [SerializeField] Transform enemy;
     [SerializeField] Transform target;
@@ -111,6 +113,8 @@ public class AI : MonoBehaviour {
 
     void Strike()
     {
+        //play SFX attack
+        GetComponent<AudioSource>().PlayOneShot(attackZombieSFX);
         anim.SetBool("attack", true);
         Debug.Log("Player Attack");
         if (anim.GetBool("attack"))
@@ -143,11 +147,13 @@ public class AI : MonoBehaviour {
     // Effect Delay function
     IEnumerator EffectDelay()
     {
+        //play while hitted
+        GetComponent<AudioSource>().PlayOneShot(hitZombieSFX);
         Quaternion q = Quaternion.Euler(transform.position.x, transform.position.y, 90);
         //GET location
         Vector3 location = target.GetComponentInChildren<WeaponScript>().GetPosition();
         //Spawn object on location
-        GameObject obj = Instantiate(BloodSpread, location, q).gameObject;
+        GameObject obj = Instantiate(bloodSpread, location, q).gameObject;
         yield return new WaitForSeconds(0.5f);
         //破壊する
         Destroy(obj);
