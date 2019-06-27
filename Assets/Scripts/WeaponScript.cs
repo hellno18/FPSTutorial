@@ -176,6 +176,7 @@ public class WeaponScript : MonoBehaviour
             }
         }
     }
+    
 
     public Vector3 GetPosition()
     {

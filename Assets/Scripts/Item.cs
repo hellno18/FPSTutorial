@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
+    public AudioClip PickUpAmmoSFX;
+    public AudioClip PickUpMedicSFX;
     //HP回復アイテムや弾薬アイテム
     [SerializeField] int healthRecover=30;
     [SerializeField] int ammoRefill=20;
@@ -15,10 +17,12 @@ public class Item : MonoBehaviour
     void Start()
     {
         randomItem = PlayerPrefs.GetInt("RandomItem");
+        
         weapon = GameObject.Find("Player").GetComponentInChildren<WeaponScript>();
         player = GameObject.Find("Player").GetComponentInChildren<PlayerScore>();
     }
 
+    
     private void OnTriggerEnter(Collider other)
     {
         /* 1-10 HP　　　回復アイテム
@@ -29,10 +33,11 @@ public class Item : MonoBehaviour
         {
             if (randomItem <= 10)
             {
-               
                 //HPが１００以下
                 if (player.GetHealth() < 100)
                 {
+                    //play SFX
+                    GetComponent<AudioSource>().PlayOneShot(PickUpMedicSFX);
                     int health = player.GetHealth();
                     //回復する
                     health += healthRecover;
@@ -48,8 +53,7 @@ public class Item : MonoBehaviour
                         player.SetHealth(health);
                     }
 
-                    //オブジェクト破壊する
-                    Destroy(gameObject);
+                    StartCoroutine(DelayDestroy());
                 }
             }
 
@@ -59,6 +63,8 @@ public class Item : MonoBehaviour
                 int ammo = weapon.GetAmmoLeft();
                 if (ammo < weapon.GetAmmoMax())
                 {
+                    //play SFX
+                    GetComponent<AudioSource>().PlayOneShot(PickUpAmmoSFX);
                     // Refill 
                     ammo += ammoRefill;
                     if (ammo >= 180)
@@ -68,12 +74,17 @@ public class Item : MonoBehaviour
                     }
                     //SET
                     weapon.SetAmmoLeft(ammo);
-                    //オブジェクト破壊する
-                    Destroy(gameObject);
+                    StartCoroutine(DelayDestroy());
                 }
                 
             }
         }
     }
 
+    IEnumerator DelayDestroy()
+    {
+        yield return new WaitForSeconds(0.8f);
+        //オブジェクト破壊する
+        Destroy(gameObject);
+    }
 }
