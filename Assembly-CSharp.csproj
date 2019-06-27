@@ -65,7 +65,6 @@
     <Compile Include="Assets\Effect\Fx Explosion Pack\Script\csLightControl.cs" />
     <Compile Include="Assets\Effect\Fx Explosion Pack\Script\csMouseOrbit.cs" />
     <Compile Include="Assets\Effect\Fx Explosion Pack\Script\DestroyEffect.cs" />
-    <Compile Include="Assets\FPS Kit By (HDGameP)\My Kit\G36C\Scripts\WeaponAnimation.cs" />
     <Compile Include="Assets\Scripts\AI.cs" />
     <Compile Include="Assets\Scripts\Crouch.cs" />
     <Compile Include="Assets\Scripts\Effect\Explosion.cs" />
@@ -80,15 +79,16 @@
     <Compile Include="Assets\Scripts\System\TimeSystem.cs" />
     <Compile Include="Assets\Scripts\System\TranslateSystem.cs" />
     <Compile Include="Assets\Scripts\WeaponScript.cs" />
-    <None Include="Assets\FPS Kit By (HDGameP)\My Kit\M4A1\Shaders\BumpedSpecular2.shader" />
-    <None Include="Assets\FPS Kit By (HDGameP)\My Kit\G18\Shaders\BumpedSpecular2.shader" />
-    <None Include="Assets\FPS Kit By (HDGameP)\My Kit\G36C\Shaders\BumpedSpecular2.shader" />
-    <None Include="Assets\FPS Kit By (HDGameP)\My Kit\Colt m9\Shaders\BackfaceBumpedDiffuse.shader" />
+    <Compile Include="Assets\Static\FPS Kit By (HDGameP)\My Kit\G36C\Scripts\WeaponAnimation.cs" />
+    <None Include="Assets\Static\FPS Kit By (HDGameP)\My Kit\M4A1\Shaders\BumpedSpecular2.shader" />
+    <None Include="Assets\Static\FPS Kit By (HDGameP)\My Kit\G18\Shaders\BumpedSpecular2.shader" />
+    <None Include="Assets\Static\FPS Kit By (HDGameP)\My Kit\G36C\Shaders\BumpedSpecular2.shader" />
+    <None Include="Assets\Static\FPS Kit By (HDGameP)\My Kit\Colt m9\Shaders\BackfaceBumpedDiffuse.shader" />
     <None Include="Assets\Allegorithmic\Plugins\engine_build_info.txt" />
-    <None Include="Assets\Environment\Contractors\RuinedCar\Shaders\Normal-BumpSpec.shader" />
+    <None Include="Assets\Static\Car\Contractors\RuinedCar\Shaders\Normal-BumpSpec.shader" />
     <None Include="Assets\Allegorithmic\Plugins\EULA.txt" />
-    <None Include="Assets\FPS Kit By (HDGameP)\My Kit\Colt m9\Shaders\BumpedSpecular2.shader" />
-    <None Include="Assets\FPS Kit By (HDGameP)\My Kit\Shaders\TeamFortness2Shader.shader" />
+    <None Include="Assets\Static\FPS Kit By (HDGameP)\My Kit\Colt m9\Shaders\BumpedSpecular2.shader" />
+    <None Include="Assets\Static\FPS Kit By (HDGameP)\My Kit\Shaders\TeamFortness2Shader.shader" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>E:/github/FPSTutorial/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
