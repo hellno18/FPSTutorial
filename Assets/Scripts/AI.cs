@@ -12,7 +12,7 @@ public class AI : MonoBehaviour {
     [SerializeField] Transform enemy;
     [SerializeField] Transform target;
     [SerializeField] int hitDamage = 25;
-    [SerializeField] int attackSpeed=1;
+    [SerializeField] float attackSpeed=1f;
     [SerializeField] float seeSight=5f;
     [SerializeField] float distance=4f;
     [SerializeField] float far = 1.4f;
@@ -159,6 +159,7 @@ public class AI : MonoBehaviour {
         Destroy(obj);
         
     }
+
 
     //StrikeDelay関数
     IEnumerator StrikeDelay()

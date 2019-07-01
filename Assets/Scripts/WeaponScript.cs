@@ -131,12 +131,16 @@ public class WeaponScript : MonoBehaviour
                 {
                     player.ScoreAdd(50);
                 }
+                else
+                {
+                    //add score スコア
+                    player.ScoreAdd(damage);
+                }
                 //give damage to enemy　ダメージ与える
                 hit.collider.GetComponent<AI>().Damage(damage);
                 //position hit
                 positionHit = new Vector3(hit.collider.transform.position.x-0.5f, hit.collider.transform.position.y, hit.collider.transform.position.z);
-                //add score スコア
-                player.ScoreAdd(damage);
+
                 //Debug.Log("HIT!!!");
                 
                 
@@ -158,11 +162,11 @@ public class WeaponScript : MonoBehaviour
                 print("HEAD");
                 //乱数チャンスHEADSHOT
                 RandomChance();
-                //HeadShot 50%チャンス
-                if (chanceHeadShot > 0 && chanceHeadShot <= 50)
+                //HeadShot 30%チャンス
+                if (chanceHeadShot > 0 && chanceHeadShot <= 30)
                 {
                     //give damage to Head (HeadShot System)
-                    hit.collider.GetComponentInParent<AI>().Damage(damage/3*10);
+                    hit.collider.GetComponentInParent<AI>().Damage(damage/3*100);
                     //add score　スコア
                     player.ScoreAdd(damage / 3 * 10);
                 }
