@@ -17,7 +17,7 @@ public class ResultScore : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (PlayerPrefs.GetString("Language") == "EN")
+        if (PlayerPrefs.GetString("Language") != "JP")
         {
             //スコアを表示する
             ResultScoreText.text = "Your Result is " + PlayerPrefs.GetInt("TotalScore").ToString();

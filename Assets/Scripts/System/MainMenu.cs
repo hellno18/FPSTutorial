@@ -33,6 +33,7 @@ public class MainMenu : MonoBehaviour
     {
         //isJapaneseがfalse
         isJapanese = false;
+        PlayerPrefs.SetString("Language", "EN");
         fadeState = CanvasFader.None;
         canvasGroupButton = GameObject.Find("ButtonGroup").GetComponent<CanvasGroup>();
         groupButton = GameObject.Find("ButtonGroup");

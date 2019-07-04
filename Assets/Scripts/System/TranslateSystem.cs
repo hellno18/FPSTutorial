@@ -20,6 +20,7 @@ public class TranslateSystem : MonoBehaviour
     void Start()
     {
         system = GameObject.Find("GameManager").GetComponent<MainMenu>();
+
     }
 
     // Update is called once per frame

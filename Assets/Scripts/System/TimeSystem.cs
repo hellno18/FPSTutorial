@@ -44,6 +44,16 @@ public class TimeSystem : MonoBehaviour
             GameObject player = GameObject.Find("Player");
             if (!isPause)
             {
+                if (PlayerPrefs.GetString("Language") == "JP")
+                {
+                    Text pauseText = GameObject.Find("PauseText").GetComponent<Text>();
+                    pauseText.text = "PAUSE\n" + "\n" + "\n" + "ESCボタンを押すと\nゲームへ戻る";
+                }
+                else
+                {
+                    Text pauseText = GameObject.Find("PauseText").GetComponent<Text>();
+                    pauseText.text = "PAUSE\n"+ "\n" + "Press" + "\n" + "ESC For Unpause";
+                }
                 pauseCanvas.alpha = 1;
                 Time.timeScale = 0;
                 gamestatus = GameStatus.Pause;
@@ -91,11 +101,20 @@ public class TimeSystem : MonoBehaviour
         TimeTextMinutes.text = ((int)minutes).ToString();
         TimeTextSeconds.text = ((int)seconds).ToString();
 
+        if (seconds>=0&&seconds < 10)
+        {
+            TimeTextSeconds.text = "0" + (int)seconds;
+        }
+        if (minutes>=0&&minutes < 3)
+        {
+            TimeTextMinutes.text = "0" + (int)minutes;
+        }
+
         // タイムカウントは０になるとゲームが終わる
         if (timeLimit <= 0f)
         {
-            TimeTextMinutes.text = "0";
-            TimeTextSeconds.text = "0";
+            TimeTextMinutes.text = "0"+ (int)minutes;
+            TimeTextSeconds.text = "0"+ (int)seconds;
             gamestatus = GameStatus.Finished;
         }
     }

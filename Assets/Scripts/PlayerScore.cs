@@ -24,6 +24,7 @@ public class PlayerScore : MonoBehaviour {
 	void Update () {
         //print score on ScoreUI
         ScoreUI.text = score.ToString();
+        PlayerPrefs.SetInt("TotalScore", score);
         HealthSlider.value = health;
         //ダメージを受けるとき、タイマーが０以上
         if (HurtScreenTimer > 0)

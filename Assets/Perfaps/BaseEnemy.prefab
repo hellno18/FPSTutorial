@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2811122531593974465}
   - component: {fileID: 3694622096895999422}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: BaseEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -94,7 +94,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eadfd88bef06d874ebb2a1f7ea46d4ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropItemSFX: {fileID: 8300000, guid: bbd7d74e9ac723c49b3d9d2503625343, type: 3}
   attackZombieSFX: {fileID: 8300000, guid: 788ebcf66effaf54f98b44c083ebd658, type: 3}
   hitZombieSFX: {fileID: 8300000, guid: 4f70e04db42dc964d9a56bded4b7b3b2, type: 3}
   bloodSpread: {fileID: 4020557279293651833, guid: d5cbe1fe141657d44901df03e96c112a,
@@ -104,8 +103,8 @@ MonoBehaviour:
   target: {fileID: 0}
   hitDamage: 25
   attackSpeed: 1
-  seeSight: 5
-  distance: 2
+  seeSight: 8
+  distance: 3
   far: 1.4
   Bonus:
   - {fileID: 165310, guid: 4cdcc6c16809ba5439c8798d9bb925f4, type: 3}
