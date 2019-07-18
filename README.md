@@ -20,6 +20,11 @@ https://assetstore.unity.com/packages/3d/characters/humanoids/zombie-30232
 -Stage Asset
 https://assetstore.unity.com/packages/3d/environments/urban/low-poly-street-pack-67475
 
+-Box Packs
+https://assetstore.unity.com/packages/3d/props/furniture/boxes-pack-32717
+
+-Ruined Car
+https://assetstore.unity.com/packages/3d/vehicles/ruined-car-5909
 
 -Game-Menu Song
 https://soundimage.org/fantasywonder/
