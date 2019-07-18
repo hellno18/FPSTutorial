@@ -1,8 +1,7 @@
 # FPSTutorial
 This game was created by Unity Engine(Unity 2018.3.6f). The purpose of creating this game is to learn and play the basis for a solid First Person Shooter.
 
-このゲームはUnityゲームエンジンを使用して、バージョンに関して2018.3.6ｆです。目的は初心者の方が楽しみプレイする。苦労した点は敵を狙うのとき、特定な部分
-にダメージを与えるのが難しいです。その時、敵の特定な部分はタックを付けるとRaycastを飛ばして当たったオブジェクトの情報を得る。
+このゲームはUnityゲームエンジンを使用して、バージョンに関して2018.3.6ｆです。目的は初心者の方が楽しみプレイすることです。苦労した点は敵を狙うのとき、特定な部分にダメージを与えるのが難しいです。その時、敵の特定な部分はタックを付けるとRaycastを飛ばして当たったオブジェクトの情報を得る。
 
 
 
