@@ -1,5 +1,9 @@
 # FPSTutorial
-This game was created by Unity Engine(Unity 2018.2.1f1). The purpose of creating this game is to learn and play the basis for a solid First Person Shooter.
+This game was created by Unity Engine(Unity 2018.3.6f). The purpose of creating this game is to learn and play the basis for a solid First Person Shooter.
+
+このゲームはUnityゲームエンジンを使用して、バージョンに関して2018.3.6ｆです。目的は初心者の方が楽しみプレイする。苦労した点はグラフィックが重く、処理に時間がかかります。解決策として、使わないアセットを削除することと変わらないオブジェクトと変わるオブジェクトの部分に分割されています。
+
+
 
 All assets are used under creative commons:
 
