@@ -10,10 +10,11 @@ http://www.mediafire.com/file/8uog9fw949d4lv1/Free+FPS+Kit.unitypackage
 standard asset Unity
 
 -Enemy Asset
-https://assetstore.unity.com/packages/3d/characters/toony-tiny-people-demo-113188
+https://assetstore.unity.com/packages/3d/characters/humanoids/zombie-30232
 
 -Stage Asset
-https://assetstore.unity.com/packages/3d/simple-town-lite-cartoon-assets-43480
+https://assetstore.unity.com/packages/3d/environments/urban/low-poly-street-pack-67475
+
 
 -Game-Menu Song
 https://soundimage.org/fantasywonder/
