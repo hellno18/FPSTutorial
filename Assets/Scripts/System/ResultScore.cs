@@ -6,11 +6,15 @@ using UnityEngine.SceneManagement;
 
 public class ResultScore : MonoBehaviour
 {
-    public Text ResultScoreText;
-    public Text FadeText;
-    
+    [SerializeField] private Text ResultScoreText;
+    [SerializeField] private Text FadeText;
+
+    SE se;
+
     private void Awake()
     {
+        //cast to SE
+        se = GameObject.Find("SE").GetComponent<SE>();
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
@@ -32,6 +36,8 @@ public class ResultScore : MonoBehaviour
         
         if (Input.anyKeyDown)
         {
+            //play Button sfx
+            se.PlayButtonSFX();
             SceneManager.LoadScene("Title");
         }
     }

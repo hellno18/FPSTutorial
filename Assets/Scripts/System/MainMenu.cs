@@ -14,6 +14,7 @@ public class MainMenu : MonoBehaviour
     GameObject canvasGroupPanel;
     GameObject groupButton;
 
+    SE se;
     //フェイドの早さ
     [SerializeField]
     private float _speed = 0.2f;
@@ -31,6 +32,9 @@ public class MainMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //cast to SE 
+        se = GameObject.Find("SE").GetComponent<SE>();
+        
         //isJapaneseがfalse
         isJapanese = false;
         PlayerPrefs.SetString("Language", "EN");
@@ -79,34 +83,52 @@ public class MainMenu : MonoBehaviour
 
     public void StartButton()
     {
+        //play button SFX
+        se.PlayButtonSFX();
+
         //Main シーンに移動
         SceneManager.LoadScene("Main");
     }
 
     public void HowToPlay()
     {
+        //play button SFX
+        se.PlayButtonSFX();
+
         fadeState = CanvasFader.FadeOut;
     }
 
     public void Japanese()
     {
+        //play button SFX
+        se.PlayButtonSFX();
+
         isJapanese = true;
         PlayerPrefs.SetString("Language", "JP");
     }
 
     public void English()
     {
+        //play button SFX
+        se.PlayButtonSFX();
+
         isJapanese = false;
         PlayerPrefs.SetString("Language", "EN");
     }
 
     public void Exit()
     {
+        //play button SFX
+        se.PlayButtonSFX();
+
         Application.Quit();
     }
 
     public void Back()
     {
+        //play button SFX
+        se.PlayButtonSFX();
+
         fadeState = CanvasFader.FadeIn;
     }
 

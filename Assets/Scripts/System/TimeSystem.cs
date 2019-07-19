@@ -3,20 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityStandardAssets.Characters.FirstPerson;
+
 public class TimeSystem : MonoBehaviour
 {
     //TEXT 変数
-    public Text TimeTextMinutes;
-    public Text TimeTextSeconds;
+    [SerializeField] private Text m_TimeTextMinutes;
+    [SerializeField] private Text m_TimeTextSeconds;
     CanvasGroup pauseCanvas;
     
     //2分でタイムカウント
-    [SerializeField]
-    float timeLimit = 120f;
+    [SerializeField] private float timeLimit = 120f;
     float minutes;
     float seconds;
     //isPauseブール型
     bool isPause;
+
+    SE se;
+
 
     public enum GameStatus
     {
@@ -30,6 +34,9 @@ public class TimeSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //cast to SE 
+        se = GameObject.Find("SE").GetComponent<SE>();
+
         isPause = false;
         pauseCanvas = GameObject.Find("Pause").GetComponent<CanvasGroup>();
         pauseCanvas.alpha = 0;
@@ -41,6 +48,9 @@ public class TimeSystem : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            //play SE Button
+            se.PlayButtonSFX();
+
             GameObject player = GameObject.Find("Player");
             if (!isPause)
             {
@@ -54,6 +64,11 @@ public class TimeSystem : MonoBehaviour
                     Text pauseText = GameObject.Find("PauseText").GetComponent<Text>();
                     pauseText.text = "PAUSE\n"+ "\n" + "Press" + "\n" + "ESC For Unpause";
                 }
+
+                //Freeze camera while paused
+                GameObject.Find("Player").GetComponent<FirstPersonController>().m_MouseLook.XSensitivity = 0;
+                GameObject.Find("Player").GetComponent<FirstPersonController>().m_MouseLook.YSensitivity = 0;
+
                 pauseCanvas.alpha = 1;
                 Time.timeScale = 0;
                 gamestatus = GameStatus.Pause;
@@ -65,6 +80,10 @@ public class TimeSystem : MonoBehaviour
             }
             else
             {
+                //unFreeze camera while paused
+                GameObject.Find("Player").GetComponent<FirstPersonController>().m_MouseLook.XSensitivity = 2;
+                GameObject.Find("Player").GetComponent<FirstPersonController>().m_MouseLook.YSensitivity = 2;
+
                 pauseCanvas.alpha = 0;
                 Time.timeScale = 1;
                 isPause = false;
@@ -98,23 +117,23 @@ public class TimeSystem : MonoBehaviour
         seconds = timeLimit % 60;
 
         //タイムカウントを表示する
-        TimeTextMinutes.text = ((int)minutes).ToString();
-        TimeTextSeconds.text = ((int)seconds).ToString();
+        m_TimeTextMinutes.text = ((int)minutes).ToString();
+        m_TimeTextSeconds.text = ((int)seconds).ToString();
 
         if (seconds>=0&&seconds < 10)
         {
-            TimeTextSeconds.text = "0" + (int)seconds;
+            m_TimeTextSeconds.text = "0" + (int)seconds;
         }
         if (minutes>=0&&minutes < 3)
         {
-            TimeTextMinutes.text = "0" + (int)minutes;
+            m_TimeTextMinutes.text = "0" + (int)minutes;
         }
 
         // タイムカウントは０になるとゲームが終わる
         if (timeLimit <= 0f)
         {
-            TimeTextMinutes.text = "0"+ (int)minutes;
-            TimeTextSeconds.text = "0"+ (int)seconds;
+            m_TimeTextMinutes.text = "0"+ (int)minutes;
+            m_TimeTextSeconds.text = "0"+ (int)seconds;
             gamestatus = GameStatus.Finished;
         }
     }
