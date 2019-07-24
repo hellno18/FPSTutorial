@@ -5,18 +5,18 @@ using UnityEngine.AI;
 
 public class AI : MonoBehaviour {
     //敵の変数（HPや叩くスピードやアイテムなど）
-    [SerializeField] AudioClip attackZombieSFX;
-    [SerializeField] AudioClip hitZombieSFX;
-    [SerializeField] ParticleSystem bloodSpread;
-    [SerializeField] int health=100;
-    [SerializeField] Transform enemy;
-    [SerializeField] Transform target;
-    [SerializeField] int hitDamage = 25;
-    [SerializeField] float attackSpeed=1f;
-    [SerializeField] float seeSight=5f;
-    [SerializeField] float distance=4f;
-    [SerializeField] float far = 1.4f;
-    [SerializeField] GameObject[] Bonus;
+    [SerializeField] private AudioClip attackZombieSFX;
+    [SerializeField] private AudioClip hitZombieSFX;
+    [SerializeField] private ParticleSystem bloodSpread;
+    [SerializeField] private int health=100;
+    [SerializeField] private Transform enemy;
+    [SerializeField] private Transform target;
+    [SerializeField] private int hitDamage = 25;
+    [SerializeField] private float attackSpeed =1f;
+    [SerializeField] private float seeSight =5f;
+    [SerializeField] private float distance =4f;
+    [SerializeField] private float far = 1.4f;
+    [SerializeField] private GameObject[] Bonus;
     //アイテム
     int randomItem;
 

@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Sprint : MonoBehaviour {
-    public string SprintAnim;
-    public string ReturnAnim;
+    [SerializeField] private string SprintAnim = "Sprint";
+    [SerializeField] private string ReturnAnim = "EndSprint";
   	
 	// Update is called once per frame
 	void Update () {

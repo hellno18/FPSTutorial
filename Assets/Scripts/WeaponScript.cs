@@ -5,31 +5,31 @@ using UnityEngine.UI;
 public class WeaponScript : MonoBehaviour
 {
     //変数（Ammoやダメージやリロードタイムなど）
-    public string FireAnim;
-    public string ReloadAnim;
-    public string DrawAnim;
-    public string IdleAnim;
-    public AudioClip Firesound;
-    public AudioClip FireReloadSound;
-    public Text AmmoUI;
-    public Text AmmoLeftUI;
-    public GameObject MuzzleFlashObject;
-    public ParticleSystem MuzzleFlash;
-    public GameObject Effect;
-    public Camera MainCamera;
+    [SerializeField] private string FireAnim = "fire";
+    [SerializeField] private string ReloadAnim = "reload";
+    [SerializeField] private string DrawAnim = "draw";
+    [SerializeField] private string IdleAnim = "idle";
+    [SerializeField] private AudioClip Firesound;
+    [SerializeField] private AudioClip FireReloadSound;
+    [SerializeField] private Text AmmoUI;
+    [SerializeField] private Text AmmoLeftUI;
+    [SerializeField] private GameObject MuzzleFlashObject;
+    [SerializeField] private ParticleSystem MuzzleFlash;
+    [SerializeField] private GameObject Effect;
+    [SerializeField] private Camera MainCamera;
 
-    [SerializeField] int ammo=30;
-    [SerializeField] int ammoLeft=150;        //left ammo
-    [SerializeField] int ammoClip=30;        // ammo clip
-    [SerializeField] int ammoMax=180;         //max of ammo
-    [SerializeField] float fireTime=0.25f;
-    [SerializeField] float reloadTime = 3;
-    [SerializeField] int damage=30;
+    [SerializeField] private int ammo=30;
+    [SerializeField] private int ammoLeft =150;        //left ammo
+    [SerializeField] private int ammoClip =30;        // ammo clip
+    [SerializeField] private int ammoMax =180;         //max of ammo
+    [SerializeField] private float fireTime =0.25f;
+    [SerializeField] private float reloadTime = 3;
+    [SerializeField] private int damage =30;
     bool canFire;
     int chanceHeadShot;
     Vector3 positionHit;
-   
-    public PlayerScore player;
+
+    [SerializeField] private PlayerScore player;
     // Use this for initialization
     void Start()
     {

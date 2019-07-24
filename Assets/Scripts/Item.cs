@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    public AudioClip PickUpAmmoSFX;
-    public AudioClip PickUpMedicSFX;
+    [SerializeField] private AudioClip PickUpAmmoSFX;
+    [SerializeField] private AudioClip PickUpMedicSFX;
     //HP回復アイテムや弾薬アイテム
-    [SerializeField] int healthRecover=30;
-    [SerializeField] int ammoRefill=20;
+    [SerializeField] private int healthRecover=30;
+    [SerializeField] private int ammoRefill=20;
     //乱数アイテム
     int randomItem;
     WeaponScript weapon;

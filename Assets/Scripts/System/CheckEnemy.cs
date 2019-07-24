@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class CheckEnemy : MonoBehaviour
 {
     //TEXT　UI変数
-    public Text RemainingEnemyText;
+    [SerializeField] private Text RemainingEnemyText;
     // 残り敵のローカル変数
     int enemyRemaining = 26;
     // Start is called before the first frame update

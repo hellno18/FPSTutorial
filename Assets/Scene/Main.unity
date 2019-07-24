@@ -5960,7 +5960,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67f6d2eda336df4449c8c2f827cf5fbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ButtonSFX: {fileID: 0}
+  m_ButtonSFX: {fileID: 8300000, guid: e9df2f17f96c32a4f9e5bd7c11401810, type: 3}
 --- !u!4 &1266262009
 Transform:
   m_ObjectHideFlags: 0

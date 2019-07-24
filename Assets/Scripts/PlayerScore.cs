@@ -5,11 +5,11 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class PlayerScore : MonoBehaviour {
     //UIスコアとHP
-    public Text ScoreUI;
-    public Slider HealthSlider;
-    public GameObject HurtScreen;
+    [SerializeField] private Text ScoreUI;
+    [SerializeField] private Slider HealthSlider;
+    [SerializeField] private GameObject HurtScreen;
     //HP変数
-    [SerializeField] int health=100;
+    [SerializeField] private int health=100;
     float HurtScreenTimer;
     int score;
     TimeSystem timesystem;

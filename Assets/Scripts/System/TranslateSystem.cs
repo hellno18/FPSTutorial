@@ -7,11 +7,11 @@ using UnityEngine.UI;
 public class TranslateSystem : MonoBehaviour
 {
     //TEXT UI変数
-    public Text StartButton;
-    public Text HowToPlay;
-    public Text Exit;
-    public Text BackButton;
-    public Text HowtoPlayText;
+    [SerializeField] private Text StartButton;
+    [SerializeField] private Text HowToPlay;
+    [SerializeField] private Text Exit;
+    [SerializeField] private Text BackButton;
+    [SerializeField] private Text HowtoPlayText;
 
     //MAINMENUをキャストする
     MainMenu system;

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 public class Crouch : MonoBehaviour {
-    [SerializeField] Transform t_mesh;                    // Player Transform
-    [SerializeField] CharacterController ccr_controller;  // Get the character controller
-    [SerializeField] float localScaleY=0f;                   // Y scale of "t_mesh"
-    [SerializeField] float controllerHeight=0f;              // Y scale of the character controller
+    [SerializeField] private Transform t_mesh;                    // Player Transform
+    [SerializeField] private CharacterController ccr_controller;  // Get the character controller
+    [SerializeField] private float localScaleY =0f;                   // Y scale of "t_mesh"
+    [SerializeField] private float controllerHeight =0f;              // Y scale of the character controller
     //しゃがむモード変数
     bool isCrouch = false;
     WeaponScript player;

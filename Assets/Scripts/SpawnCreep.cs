@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnCreep : MonoBehaviour {
-    public Transform [] spawner;
-    public float spawnTime=5f;
-    public GameObject enemyprefap;
-    public bool spawn;
-    public int random;
+    [SerializeField] private Transform [] spawner;
+    [SerializeField] private float spawnTime=5f;
+    [SerializeField] private GameObject enemyprefap;
+    [SerializeField] private bool spawn;
+    [SerializeField] private int random;
     // Use this for initialization
     void Start () {
         spawn = true;

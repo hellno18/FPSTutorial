@@ -5,7 +5,7 @@ using UnityEngine;
 public class Hidrant : MonoBehaviour
 {
     //ゲームオブジェクト（アクター、ブール型変数など)
-    public GameObject Particle;
+    [SerializeField] private GameObject Particle;
 
     //boolean型の変数を宣言
     bool effect;
